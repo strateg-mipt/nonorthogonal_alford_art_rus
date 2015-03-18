@@ -4,14 +4,25 @@
 \centering
 \caption{Параметры применяемых фильтров}
 \renewcommand{\arraystretch}{1.5}
+\textbf{Оконные фильтры}
 \begin{tabularx}{\textwidth}{|C|l|c|l|c|c|}
-\hline  Обозначение & Форма скважины & Геометрия & Материал породы & TI угол $\zeta$ & TI угол $\phi$ \\ \hline
-\hline \textbf{}\modelnum{\label{mnum: 1}}& Цилиндрическая & $20 \times 20$ см & Austin Chalk & 60 & 45 \\ 
-\hline \textbf{}\modelnum{\label{mnum: 2}}& Эллиптическая & $15 \times 10$ см & Изотроп. медленная & - & - \\ 
-\hline \textbf{}\modelnum{\label{mnum: 3}}& Эллиптическая & $20 \times 10$ см & Austin Chalk & 60 & 45 \\ 
-\hline \textbf{}\modelnum{\label{mnum: 4}}& Эллиптическая & $15 \times 10$ см & Austin Chalk & 60 & 45 \\ 
-\hline \textbf{}\modelnum{\label{mnum: 5}}& Эллиптическая & $15 \times 10$ см & Cotton Valey Shale & 60 & 45 \\ 
-\hline \textbf{}\modelnum{\label{mnum: 6}}& Эллиптическая & $20 \times 10$ см & Cotton Valey Shale & 60 & 45 \\ 
+\hline Обозначение & Величина окна & Интервальное время, мкс/м &  &  &  \\ \hline
+\hline ОФ-1 & 0.5 мс & 987 &  &  &  \\ 
+\hline ОФ-2 & 1 мс & 400 &  &  &  \\ 
+\hline 
+\end{tabularx}
+\textbf{Низкочастотные фильтры}
+\begin{tabularx}{\textwidth}{|C|l|c|l|c|c|}
+\hline Обозначение & Частота дискретизации & $A_{pass}$ & $A_{stop}$ & $F_{pass}$ & $F_{stop}$ \\ \hline
+\hline НЧФ-1 & 1194892 & 1 dB & 80 dB & 5000 & 4000 \\ 
+\hline НЧФ-2 & 1194892 & 1 dB & 80 dB & 6000 & 5000 \\ 
+\hline 
+\end{tabularx}
+\textbf{Высокочастотные фильтры}
+\begin{tabularx}{\textwidth}{|C|l|c|l|c|c|}
+\hline Обозначение & Частота дискретизации & $A_{pass}$ & $A_{stop}$ & $F_{pass}$ & $F_{stop}$ \\ \hline
+\hline ВЧФ-1 & 1194892 & 1 dB & 80 dB & 4000 & 5000 \\ 
+\hline ВЧФ-2 & 1194892 & 1 dB & 80 dB & 5000 & 6000 \\ 
 \hline 
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
