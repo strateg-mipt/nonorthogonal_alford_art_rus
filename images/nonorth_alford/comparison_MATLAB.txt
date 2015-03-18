@@ -1,0 +1,17 @@
+Checking accuracy Rot4c and gs_Rot4c
+
+TTI 60 AC 45deg, cylindrical R=20 cm, dipole angles -120 and -30 degrees
+Rot4C:	 theta1 = -14.9996, theta2 = 75.0004, Cross-energy (rel) 3.1640e-10
+gs_Rot4C:theta1 = -14.9998, theta2 = 75.0003, Cross-energy (rel) 3.1385e-10
+
+OK!
+--------------------------------------
+RS, elliptical R1=15 cm, R2=10cm, dipole angles -120 and -30 degrees
+Rot4C:	 theta1 = 29.9875, theta2 = -60.0125, Cross-energy (rel) 5.1932e-06
+gs_Rot4C:theta1 = 29.9873, theta2 = -60.0082, Cross-energy (rel) 5.1901e-06
+
+OK!
+--------------------------------------
+TTI 60 AC 45deg, elliptical R1=20 cm, R2=10cm, dipole angles -120 and -30 degrees
+Rot4C:	 theta1 = -70.5111, theta2 = 19.4889, Cross-energy (rel) 0.1726
+gs_Rot4C:theta1 = -86.3806, theta2 = 20.4622, Cross-energy (rel) 0.1511

@@ -1,0 +1,62 @@
+\section{Краткое описание проблемы}
+
+Модель распространения волн по скважине, используемой в алгоритмах обработки данных каротажных измерений, основана на уравнениях распространения плоской волны в анизотропной недисперсионной среде. Вектор значений $\mathbf{R}$ на приемниках может быть выражен через вектор возбуждения источника $\mathbf{S}$ в форме
+$$
+	\mathbf{R} = \mathbf{P}_{M \rightarrow R} \ \mathbf{D} \ \mathbf{P}_{S \rightarrow M} \ \mathbf{S},
+$$
+где $\mathbf{P}_{S \rightarrow M}$ - матрица, проецирующая вектор источника на главные направления распространения нормальных дипольных мод, $\mathbf{D}$ - матрица, определяющая распространение чистых мод вдоль скважины (в предположении, что моды не взаимодействуют друг с другом, считаем $\mathbf{D}$ диагональной), $\mathbf{P}_{M \rightarrow R}$ - матрица, проецирующая сигнал чистых мод на направления приемников.
+
+В типовой схеме кросс-дипольных измерений с двумя ортогональными источниками, сонаправленными с осями $X$ и $Y$, $\mathbf{S}$ представляется через единичную матрицу, а данные с приемников могут быть записаны в форме матрицы данных:
+$$
+\left(
+\begin{array}{cc}
+XX & YX \\
+XY & YY \\
+\end{array}
+\right) = \mathbf{R} = \mathbf{P}_{M \rightarrow R} \ \mathbf{D} \ \mathbf{P}_{S \rightarrow M}
+$$
+Если системы координат источников и приемников совпадают, то $\mathbf{P}_{M \rightarrow R}={\mathbf{P}_{S \rightarrow M}}^{T} = \mathbf{P}$, а матрица распространения чистых мод может быть выражена в форме
+$$
+	\mathbf{D} = \mathbf{P}^{-1} \ \mathbf{R} \ \mathbf{P}^{-T}.
+$$
+В традиционном варианте Alford rotation \cite{Alford1986} моды считаются ортогональными. В этом случае ортогональным поворотом на угол $\theta$ можно перейти в каноническую систему координат. В работе Dellinger et al. \cite{Dellinger1998} было показано, что даже если моды в скважине не являются ортогональными, $\mathbf{D}$ все равно может быть диагонализирована. Направление поляризации первой моды характеризуется углом $\theta$ относительно оси $X$, направление второй моды определяется поворотом на $\theta + \eta$ относительно оси $Y$.
+\\
+
+\begin{parcolumns}[colwidths={1=0.5\linewidth},rulebetween]{2}
+
+\colchunk{
+\textbf{Ортогональный Alford rotation}
+\begin{align*}
+\mathbf{P} & = \left(
+\begin{array}{cc}
+\cos \theta & -\sin \theta \\ 
+\sin \theta & \cos \theta
+\end{array} 
+\right) \\
+\mathbf{P}^{-1} & = \left(
+\begin{array}{cc}
+\cos \theta & \sin \theta \\ 
+-\sin \theta & \cos \theta
+\end{array} 
+\right)
+\end{align*}
+}
+\colchunk{
+\textbf{Неортогональный Alford rotation}
+\begin{align*}
+\mathbf{P} &= \left(
+\begin{array}{cc}
+\cos \theta & -\sin (\theta+\eta) \\ 
+\sin \theta & \cos (\theta+\eta)
+\end{array} 
+\right) \\
+\mathbf{P}^{-1} &= \frac{1}{\cos \eta} \left(
+\begin{array}{cc}
+\cos (\theta+\eta) & \sin (\theta+\eta) \\ 
+-\sin \theta & \cos (\theta)
+\end{array} 
+\right)
+\end{align*}
+}
+\colplacechunks
+\end{parcolumns}

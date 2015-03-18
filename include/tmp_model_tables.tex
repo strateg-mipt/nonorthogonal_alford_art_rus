@@ -1,0 +1,35 @@
+\section{Описание модельных задач}
+
+\begin{table}
+\footnotesize
+\centering
+\caption{Параметры упругих анизотропных материалов}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|c|c|}
+\hline \multirow{2}{*}{Название}  & Плотность & \multicolumn{6}{c|}{Упругие модули, ГПа} \\ 
+\cline{3-8}  & кг/м$^3$ & $C_{11}$ & $C_{12}$ & $C_{13}$ & $C_{33}$ & $C_{44}$ & $C_{66}$ \\ \hline
+\hline Austin Chalk & 2200 & 22 & 15.8 & 12 & 14 & 2.4 & 3.1 \\ 
+\hline Cotton Valey Shale & 2640 & 74.73 & 14.75 & 25.29 & 58.84 & 22.05 & 29.99 \\ 
+\hline Bakken Shale & 2230 & 40.9 & 10.3 & 8.5 & 26.9 & 10.5 & 15.3 \\ 
+\hline 
+\end{tabularx} 
+\renewcommand{\arraystretch}{1.0}
+\end{table}
+
+\begin{table}
+\footnotesize
+\centering
+\caption{Параметры модельных задач}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|C|l|c|l|c|c|}
+\hline  Обозначение & Форма скважины & Геометрия & Материал породы & TI угол $\zeta$ & TI угол $\phi$ \\ \hline
+\hline \textbf{}\modelnum{\label{mnum: 1}}& Цилиндрическая & $20 \times 20$ см & Austin Chalk & 60 & 45 \\ 
+\hline \textbf{}\modelnum{\label{mnum: 2}}& Эллиптическая & $15 \times 10$ см & Изотроп. медленная & - & - \\ 
+\hline \textbf{}\modelnum{\label{mnum: 3}}& Эллиптическая & $20 \times 10$ см & Austin Chalk & 60 & 45 \\ 
+\hline \textbf{}\modelnum{\label{mnum: 4}}& Эллиптическая & $15 \times 10$ см & Austin Chalk & 60 & 45 \\ 
+\hline \textbf{}\modelnum{\label{mnum: 5}}& Эллиптическая & $15 \times 10$ см & Cotton Valey Shale & 60 & 45 \\ 
+\hline \textbf{}\modelnum{\label{mnum: 6}}& Эллиптическая & $20 \times 10$ см & Cotton Valey Shale & 60 & 45 \\ 
+\hline 
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\end{table}

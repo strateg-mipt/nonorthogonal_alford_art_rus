@@ -1,0 +1,44 @@
+\section{Результаты расчетов}
+
+\begin{table}
+\footnotesize
+\centering
+\caption{Результаты расчетов}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{C|rr|rr|r|ll}
+				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c}{$E_{cr}^n/E_{t}^n$} \\ \hline
+\hline Модель \ref{mnum: 1} & -14.9996 & -14.9998 & 74.0004 & 74.0003 & $\approx$ 0   & $3.1640 \cdot 10^{-10}$ & $3.1385 \cdot 10^{-10}$ \\ 
+	   Модель \ref{mnum: 2} & 29.9875  & 29.9873  & -60.0125& -60.0082& $\approx$ 0   & $5.1932 \cdot 10^{-6}$  & $5.1901 \cdot 10^{-6}$ \\ 
+ 	   Модель \ref{mnum: 3} & -70.5111 & -86.3606 & 19.4889 & 20.4622 & 16.8 & 0.1726 & 0.1511 \\ 
+ 	   Модель \ref{mnum: 4} & -33.1254 & -43.2920 & 56.8746 & 65.1455 & 18.4 & 0.0791 & 0.0460 \\ 
+ 	   Модель \ref{mnum: 5} & -88.2731 & -88.2149 & 1.7269  & 1.6286  & 0.15 & 0.0041 & 0.0041 \\
+ 	   Модель \ref{mnum: 6} & -89.1579 & -89.1352 & 0.8421  & 0.7691  & 0.1  & 0.0062 & 0.0062 \\
+ 	   \hline
+\end{tabularx} 
+\renewcommand{\arraystretch}{1.0}
+\end{table}
+
+\begin{table}
+\footnotesize
+\centering
+\caption{Результаты расчетов с применением фильтров}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{X|rr|rr|r|ll}
+				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c}{$E_{cr}^n/E_{t}^n$} \\ \hline
+\hline  \textbf{Модель \ref{mnum: 3}}	& \textbf{-10.5111} & \textbf{-26.3606} & \textbf{79.4889} & \textbf{80.4622} & \textbf{16.8} & \textbf{0.1726} & \textbf{0.1511} \\
+		Модель \ref{mnum: 3} с окном  	& -31.0135 & -42.6876 & 58.9865 & 67.8336 & 20.5 & 0.0445 & 0.0099 \\
+	    Модель \ref{mnum: 3} с НЧФ 		& -30.6596 & -41.5868 & 59.3404 & 68.1357 & 19.7 & 0.0358 & 0.0027 \\
+ 	    Модель \ref{mnum: 3} с ВЧФ 		& -1.7554  & -4.9971  & 88.2446 & 88.5870 & 3.6  & 0.0602 & 0.0597 \\ 	   
+\hline  \textbf{Модель \ref{mnum: 4}}	& \textbf{-33.1254} & \textbf{-43.2920} & \textbf{56.8746} & \textbf{65.1455} & \textbf{18.4} & \textbf{0.0791} & \textbf{0.0460} \\
+		Модель \ref{mnum: 4} с окном 1 	& -34.9269 & -42.3895 & 55.0731 & 62.0447 & 14.4 & 0.0113 & 0.0010 \\
+	    Модель \ref{mnum: 4} с НЧФ 		& -34.8496 & -42.1434 & 55.1538 & 62.0865 & 14.2 & 0.0117 & 0.0005 \\
+ 	    Модель \ref{mnum: 4} с ВЧФ 		& -13.8552 & -30.2318 & 76.1448 & 75.9994 & 16.2 & 0.1489 & 0.1250 \\ 
+\hline  \textbf{Модель \ref{mnum: 5}} 	& \textbf{-88.2731} & \textbf{-88.2149} & \textbf{1.7269} & \textbf{1.6286} & \textbf{0.15} & \textbf{0.0041} & \textbf{0.0041} \\
+		Модель \ref{mnum: 5} с окном 2  & -53.6211 & -62.9063 & 36.3789 & 49.2159 & 22.1 & 0.1951 & 0.1362 \\
+	    Модель \ref{mnum: 5} с НЧФ  	& -87.7936 & -73.4542 & 2.2064 & 2.1189 & 14.4 & 0.0107 & 0.0084 \\
+\hline  \textbf{Модель \ref{mnum: 6}} 	& \textbf{-89.1579} & \textbf{-89.1352} & \textbf{0.8421} & \textbf{0.7691} & \textbf{0.1} & \textbf{0.0062} & \textbf{0.0062} \\
+		Модель \ref{mnum: 6} с окном 2 	& -29.3221 & -59.0992 & 60.6779 & 62.8873 & 32.0 & 0.3304 & 0.2324 \\
+	    Модель \ref{mnum: 6} с НЧФ 		& -89.0481 & -75.6149 & 0.9519 & 0.9021 & 13.5 & 0.0025 & 0.0021 \\ \hline	   	       	    
+\end{tabularx} 
+\renewcommand{\arraystretch}{1.0}
+\end{table}
