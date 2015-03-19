@@ -33,6 +33,14 @@ bookmarks=true,linktocpage=true,hyperindex=true]{hyperref}
 
 \newcounter{modelnum}
 \newcommand{\modelnum}[1]{\refstepcounter{modelnum}Модель \themodelnum #1}
+
+%Filters counters
+\newcounter{wfiltnum}
+\newcommand{\wfiltnum}[1]{\refstepcounter{wfiltnum}ОФ-\thewfiltnum #1}
+\newcounter{lffiltnum}
+\newcommand{\lffiltnum}[1]{\refstepcounter{lffiltnum}НЧФ-\thelffiltnum #1}
+\newcounter{hffiltnum}
+\newcommand{\hffiltnum}[1]{\refstepcounter{hffiltnum}ВЧФ-\thehffiltnum #1}
 %tabularx options
 \newcolumntype{C}{>{\centering}X}
 
@@ -155,12 +163,9 @@ $$
 
 \include{include/tmp_results_tables}
 
-
-
+\include{include/tmp_filter_tables}
 
 \section{Фильтрация данных}
-
-\include{include/tmp_filter_tables}
 
 \begin{minipage}[c]{0.47\linewidth}	
 \begin{center}
