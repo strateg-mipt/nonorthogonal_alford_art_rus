@@ -54,7 +54,7 @@ bookmarks=true,linktocpage=true,hyperindex=true]{hyperref}
 \section{Введение}
 Уже несколько десятилетий в акустическом каротаже широко и достаточно успешно практикуются методики кросс-дипольных измерений. Современные решения в технике и обработке полученных данных позволяют количественно производить оценку азимутальной и аксиальной (по отношению к стволу скважины) анизотропии для широкой группы горных пород. Существенный прогресс в определении параметров породы в рамках модели трансверсально-изотропного (ТИ) тела по скоростям распространения поперечных волн называется рядом специалистов главным достижением методов акустического каротажа последних лет. Кросс-дипольные измерения также могут быть использованы для определения ориентации крупных трещин и обнаружения анизотропии, индуцированной подземными горизонтальными напряжениями \cite{Patterson2001}.
 
-Как известно, принцип работы данного метода основан на существовании в ТИ породе двух ортогональных выделенных направлений, что в общем случае приводит к поляризации распространяющихся по стволу скважины поперечных волн. При наличии измерений от двух направленных ортогонально-ориентированных источников в скважине возможно определить направления главных осей ТИ модели и скорости распространения поляризованных поперечных волн. В основе классического метода определения лежит допущение о симметричности матрицы измерений (составленной из данных четырёх измерений с различной ориентацией источников и приёмников), которая может быть приведена к диагональному виду ортогональным поворотом на некоторый угол \cite{Alford1986}. В ряде практических случаев ортогональность направлений поляризации поперечных волн отсутствует, но в однородной породе симметрия матрицы измерений сохраняется и существуют возможности её диагонализации другими способами \cite{Dellinger1998}. Помимо неортогональности на результат работы классического алгоритма может влиять наличие сильных горизонтальных напряжений, приводящих к возникновению индуцированной анизотропии и эффекту пересечения дисперсионных кривых быстрой и медленной волн. Результаты работы алгоритма становятся при этом зависимыми от ширины выбранного временного окна, что свидетельствует о зависимости направления поляризации волн от частоты \cite{Nolte1997}. Другим фактором, влияющим на поляризацию и разделение волн в скважине, является неидеально цилиндрическая форма поперечного сечения ствола \cite{Seroices2010}. В сочетании с анизотропными свойствами горной породы отклонения от цилиндрической формы могут приводить к проблемам определения направлений главных осей стандартными методами [?].
+Как известно, принцип работы данного метода основан на существовании в ТИ породе двух ортогональных выделенных направлений, что в общем случае приводит к поляризации распространяющихся по стволу скважины поперечных волн. При наличии измерений от двух направленных ортогонально-ориентированных источников в скважине возможно определить направления главных осей ТИ модели и скорости распространения поляризованных поперечных волн. В основе классического метода определения лежит допущение о симметричности матрицы измерений (составленной из данных четырёх измерений с различной ориентацией источников и приёмников), которая может быть приведена к диагональному виду ортогональным поворотом на некоторый угол \cite{Alford1986}. В ряде практических случаев ортогональность направлений поляризации поперечных волн отсутствует, но в однородной породе симметрия матрицы измерений сохраняется и существуют возможности её диагонализации другими способами \cite{Dellinger1998}. Помимо неортогональности на результат работы классического алгоритма может влиять наличие сильных горизонтальных напряжений, приводящих к возникновению индуцированной анизотропии и эффекту пересечения дисперсионных кривых быстрой и медленной волн. Результаты работы алгоритма становятся при этом зависимыми от ширины выбранного временного окна, что свидетельствует о зависимости направления поляризации волн от частоты \cite{Nolte1997}. Другим фактором, влияющим на поляризацию и разделение волн в скважине, является неидеально цилиндрическая форма поперечного сечения ствола \cite{Seroices2010}. В сочетании с анизотропными свойствами горной породы отклонения от цилиндрической формы могут приводить к проблемам определения направлений главных осей стандартными методами.
 
 В данной работе рассматривается вопрос определения главных направлений ТИ породы по измерениям в скважинах эллиптического сечения, являющихся модельным приближением более общих несимметричных форм скважин. В качестве исходных данных используются результаты численного трёхмерного моделирования с помощью метода спектральных элементов \cite{Komatitsch2000}. Для анализа структуры волнового поля в скважинах на определённой частоте применяется полуаналитический метод конечных элементов (SAFE) \cite{Bartoli2006}. Результаты расчётов сопоставляются с данными, получаемыми классическим алгоритмом Alford rotation \cite{Alford1986} и его альтернативной неортогональной модификации \cite{Dellinger1998} с применением оконной и частотной фильтрации и без неё.
 
@@ -153,14 +153,15 @@ $$
 
 \section{Результаты обработки Alford rotation}
 \label{comparison_alford}
-Влияние несимметричности формы скважины на результат работы упомянутых алгоритмов определения главных направлений анизотропного тела рассмотрим на примере эллиптических скважин в ТИ породах  Bakken Shale и Cotton Valey Shale. Обе породы относятся к классу глинистых сланцев и имеют скорость распространения поперечных волн превышающую скорость звука в жидкости в скважине (быстрые породы). Значение упругих постоянных материалов приведены в таблице \ref{tab:properties}. Ось симметрии ТИ породы наклонена по отношению к оси скважины под углом 90\textdegree (HTI), в плоскости поперечного сечения скважины ось повернута относительно осей эллипса на $\theta = 45$\textdegree. Определение угла $\theta$ является задачей алгоритма. В расчетах использовались скважины размерами полуосей $12.70 \times 10.16$ см ($5 \times 4$ дюймов) и $15 \times 10$ см с соотношением полуосей эллипса соответственно 25\% и 50\%. Полное описание рассматриваемых моделей можно найти в таблице \ref{tab:models_description}. 
+Влияние несимметричности формы скважины на результат работы упомянутых алгоритмов определения главных направлений анизотропного тела рассмотрим на примере эллиптических скважин в ТИ породах  Bakken Shale и Cotton Valey Shale. Обе породы относятся к классу глинистых сланцев и имеют скорость распространения поперечных волн превышающую скорость звука в жидкости в скважине (быстрые породы). Значение упругих постоянных материалов приведены в таблице \ref{tab:properties}. Ось симметрии ТИ породы наклонена по отношению к оси скважины под углом 90\textdegree (HTI), в плоскости поперечного сечения скважины ось повернута относительно осей эллипса на $\theta = 45$\textdegree. Определение угла $\theta$ является задачей алгоритма. В расчетах использовались скважины размерами полуосей $12.70 \times 10.16$ см ($5 \times 4$ дюймов) и $15 \times 10$ см с соотношением полуосей эллипса соответственно 25\% и 50\%. 
+%Полное описание рассматриваемых моделей можно найти в таблице \ref{tab:models_description}. 
 
 Метод спектральных элементов (SEM) использовался для моделирования результатов каротажных измерений, полученные записи с приёмников были поданы на вход исследуемых алгоритмов обработки. В качестве сигнала дипольного акустического источника в скважине была взята производная вейвлета Блэкмана-Харриса с центральной частотой 4 кГц. Полученные в результате обработки значения углов приведены в таблице \ref{tab:std_process_results}. 
 
 %Параметры быстрой породы, $\rho = 2640$ кг/м$^3$, $V_P = 5219$ м/с, $V_S = 3257$ м/с.
 \begin{table}[H]
 \footnotesize
-\centering
+%\centering
 \caption{Параметры упругих анизотропных материалов}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|C|c|c|c|c|c|c|c|}
@@ -174,22 +175,22 @@ $$
 \renewcommand{\arraystretch}{1.0}
 \end{table}
 
-\begin{table}[h]
-\footnotesize
-\centering
-\caption{Параметры модельных задач}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{|C|c|l|}
-\hline  Обозначение & Геометрия, см & Материал породы \\ \hline
-\hline \textbf{}\modelnum{\label{mnum: 11}}& Эллиптическая $12.70 \times 10.16$ & Bakken Shale \\ % Bakken Shale ($12.70 \times 10.16$)
-\hline \textbf{}\modelnum{\label{mnum: 10}}& Эллиптическая $15.00 \times 10.00$ & Bakken Shale \\ % Bakken Shale ($15.00 \times 10.00$)
-\hline \textbf{}\modelnum{\label{mnum: 12}}& Эллиптическая $12.70 \times 10.16$ & Cotton Valey Shale \\ % Cotton Valey Shale ($12.70 \times 10.16$)
-\hline \textbf{}\modelnum{\label{mnum: 9}}& Эллиптическая $15.00 \times 10.00$ & Cotton Valey Shale \\ % Cotton Valey Shale ($15.00 \times 10.00$)
-\hline 
-\end{tabularx}
-\label{tab:models_description}
-\renewcommand{\arraystretch}{1.0}
-\end{table}
+%\begin{table}[h]
+%\footnotesize
+%\centering
+%\caption{Параметры модельных задач}
+%\renewcommand{\arraystretch}{1.5}
+%\begin{tabularx}{\textwidth}{|C|c|l|}
+%\hline  Обозначение & Геометрия, см & Материал породы \\ \hline
+%\hline \textbf{}\modelnum{\label{mnum: 11}}& Эллиптическая $12.70 \times 10.16$ & Bakken Shale \\ % Bakken Shale ($12.70 \times 10.16$)
+%\hline \textbf{}\modelnum{\label{mnum: 10}}& Эллиптическая $15.00 \times 10.00$ & Bakken Shale \\ % Bakken Shale ($15.00 \times 10.00$)
+%\hline \textbf{}\modelnum{\label{mnum: 12}}& Эллиптическая $12.70 \times 10.16$ & Cotton Valey Shale \\ % Cotton Valey Shale ($12.70 \times 10.16$)
+%\hline \textbf{}\modelnum{\label{mnum: 9}}& Эллиптическая $15.00 \times 10.00$ & Cotton Valey Shale \\ % Cotton Valey Shale ($15.00 \times 10.00$)
+%\hline 
+%\end{tabularx}
+%\label{tab:models_description}
+%\renewcommand{\arraystretch}{1.0}
+%\end{table}
 
 Величина $E_{cr}^n/E_{t}^n$ относительной энергии суммы недиагональных компонент $\mathbf{D}$, полученной после поворота на найденный угол матрицы измерений, характеризует степень адекватности применяемых методик и достоверность результатов. На модельных данных в недиагональных компонентах остается от 1 до 3\% энергии. При этом значения углов значительно отличаются от заданного значения в 45\textdegree. Для сравнения, при обработке модельных измерений для цилиндрической скважины в анизотропной породе $E_{cr}^n/E_{t}^n$ имеет существенно меньшие значения порядка $10^{-7}$ для обоих алгоритмов и точное совпадение значений углов. 
 
@@ -199,16 +200,16 @@ $$
 
 \begin{table}[h]
 \footnotesize
-\centering
-\caption{Результаты расчетов}
+%\centering
+\caption{Результаты обработки исходных данных алгоритмами Alford rotation}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{|C|rr|rr|r|rr|}
+\begin{tabularx}{\textwidth}{|X|rr|rr|r|rr|}
 \hline	
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c}{$E_{cr}^n/E_{t}^n$} \\ \hline
-\hline Модель \ref{mnum: 11} & 15.56 & 14.72 & -74.44 & -73.92  & 1.36  & 0.0299 & 0.0298 \\
-\hline Модель \ref{mnum: 10} & 8.39 & 8.12 & -81.61 & -81.56 & 0.32 & 0.0169 & 0.0168 \\
-\hline Модель \ref{mnum: 12} & 3.26 & 3.04 & -86.74 & -86.66  & 0.30 & 0.0075 & 0.0075 \\ 
-\hline Модель \ref{mnum: 9} & 1.63 & 1.78 & -88.37 & -88.42  & 0.00  & 0.0064 & 0.0064 \\	   
+				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c|}{$E_{cr}^n/E_{t}^n$} \\ \hline
+\hline Bakken Shale ($12.70 \times 10.16$) & 15.56 & 14.72 & -74.44 & -73.92  & 1.36  & 0.0299 & 0.0298 \\
+\hline Bakken Shale ($15.00 \times 10.00$) & 8.39 & 8.12 & -81.61 & -81.56 & 0.32 & 0.0169 & 0.0168 \\
+\hline Cotton Valey Shale ($12.70 \times 10.16$) & 3.26 & 3.04 & -86.74 & -86.66  & 0.30 & 0.0075 & 0.0075 \\ 
+\hline Cotton Valey Shale ($15.00 \times 10.00$) & 1.63 & 1.78 & -88.37 & -88.42  & 0.00  & 0.0064 & 0.0064 \\	   
  	   \hline
 \end{tabularx} 
 \begin{flushleft}
@@ -225,19 +226,19 @@ $$
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{|X|rr|rr|r|rr|}
 \hline
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c}{$E_{cr}^n/E_{t}^n$} \\ \hline
-\hline	\textbf{Модель \ref{mnum: 11}} & \textbf{15.56} & \textbf{14.72} & \textbf{-74.44}  & \textbf{-73.92}  & \textbf{1.36}  & \textbf{0.0299} & \textbf{0.0297} \\
-		Модель \ref{mnum: 11} с НЧФ \ref{lffnum: 3} & 49.41 & 40.46 & -40.59 & -35.41  & 14.13 & 0.0204 & 0.0124\\
-		Модель \ref{mnum: 11} с ВЧФ \ref{hffnum: 1} & 14.01 & 13.25 & -75.99 & -75.58  & 1.17 & 0.0039 & 0.0038\\
-\hline	\textbf{Модель \ref{mnum: 10}} & \textbf{8.39} & \textbf{8.12} & \textbf{-81.61}  & \textbf{-81.56} & \textbf{0.32}  & \textbf{0.0169} & \textbf{0.0169} \\
-		Модель \ref{mnum: 10} с НЧФ \ref{lffnum: 3} & 41.21 & 25.71 & -48.79 & -31.97  & 32.32 & 0.2210 & 0.1199\\
-		Модель \ref{mnum: 10} с ВЧФ \ref{hffnum: 2} & 7.54 & 10.22 & -82.46 & -82.63  & 2.84 & 0.0110 & 0.0101\\
-\hline	\textbf{Модель \ref{mnum: 12}} & \textbf{3.26} & \textbf{3.04} & \textbf{-86.74}  & \textbf{-86.66}  & \textbf{0.30}  & \textbf{0.0075} & \textbf{0.0075}\\
-		Модель \ref{mnum: 12} с НЧФ \ref{lffnum: 4} & 48.42 & 39.73 & -41.58 & -35.50  & 14.77  & 0.0974 & 0.0701 \\
-		Модель \ref{mnum: 12} с ВЧФ \ref{hffnum: 3} & 2.77 & 3.26 & -87.23 & -87.43  & 0.69  & 0.0045 & 0.0045\\	
-\hline	\textbf{Модель \ref{mnum: 9}} & \textbf{1.63} & \textbf{1.78} & \textbf{-88.37}  & \textbf{-88.42}  & \textbf{0.00}  & \textbf{0.0064} & \textbf{0.0064} \\
-		Модель \ref{mnum: 9} с НЧФ \ref{lffnum: 4} & 6.03 & 7.73 & -83.97 & -56.60  & 25.67  & 0.0789 & 0.0726 \\
-		Модель \ref{mnum: 9} с ВЧФ \ref{hffnum: 3} & 1.49 & 2.04 & -88.51 & -88.71  & 0.74  & 0.0184 & 0.0183\\		
+				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cr}^o/E_{t}^o$} & \multicolumn{1}{c|}{$E_{cr}^n/E_{t}^n$} \\ \hline
+\hline	\textbf{Bakken Shale ($12.70 \times 10.16$)} & \textbf{15.56} & \textbf{14.72} & \textbf{-74.44}  & \textbf{-73.92}  & \textbf{1.36}  & \textbf{0.0299} & \textbf{0.0297} \\
+		-//-//- с НЧФ \ref{lffnum: 3} & 49.41 & 40.46 & -40.59 & -35.41  & 14.13 & 0.0204 & 0.0124\\
+		-//-//- с ВЧФ \ref{hffnum: 1} & 14.01 & 13.25 & -75.99 & -75.58  & 1.17 & 0.0039 & 0.0038\\
+\hline	\textbf{Bakken Shale ($15.00 \times 10.00$)} & \textbf{8.39} & \textbf{8.12} & \textbf{-81.61}  & \textbf{-81.56} & \textbf{0.32}  & \textbf{0.0169} & \textbf{0.0169} \\
+		-//-//- с НЧФ \ref{lffnum: 3} & 41.21 & 25.71 & -48.79 & -31.97  & 32.32 & 0.2210 & 0.1199\\
+		-//-//- с ВЧФ \ref{hffnum: 2} & 7.54 & 10.22 & -82.46 & -82.63  & 2.84 & 0.0110 & 0.0101\\
+\hline	\textbf{Cotton Valey Shale ($12.70 \times 10.16$)} & \textbf{3.26} & \textbf{3.04} & \textbf{-86.74}  & \textbf{-86.66}  & \textbf{0.30}  & \textbf{0.0075} & \textbf{0.0075}\\
+		-//-//- с НЧФ \ref{lffnum: 4} & 48.42 & 39.73 & -41.58 & -35.50  & 14.77  & 0.0974 & 0.0701 \\
+		-//-//- с ВЧФ \ref{hffnum: 3} & 2.77 & 3.26 & -87.23 & -87.43  & 0.69  & 0.0045 & 0.0045\\	
+\hline	\textbf{Cotton Valey Shale ($15.00 \times 10.00$)} & \textbf{1.63} & \textbf{1.78} & \textbf{-88.37}  & \textbf{-88.42}  & \textbf{0.00}  & \textbf{0.0064} & \textbf{0.0064} \\
+		-//-//- с НЧФ \ref{lffnum: 4} & 6.03 & 7.73 & -83.97 & -56.60  & 25.67  & 0.0789 & 0.0726 \\
+		-//-//- с ВЧФ \ref{hffnum: 3} & 1.49 & 2.04 & -88.51 & -88.71  & 0.74  & 0.0184 & 0.0183\\		
 \hline	
 \end{tabularx} 
 \begin{flushleft}
@@ -251,24 +252,24 @@ $$
 \section{Сравнение с SAFE}
 \label{safe_comparison}
 
-Применение SAFE позволяет сопоставить ранее полученные значения углов с рассчитанными направлениями поляризации дипольных мод в рамках используемой математической модели породы. После применения частотной фильтрации к исходному сигналу выделим частоту в спектре сигналов приемников с максимальной энергией и построим собственные решения для двух дипольных мод на этой частоте. Учитывая более узкий частотный диапазон в фильтрованном сигнале, поляризация этих решений по нашему предположению должно быть близко результатам обработки Alford rotation. На рисунке \ref{fig:bs10_8_HTI45} приведено сравнение значений углов из таблицы \ref{tab:filter_process_results} для моделей \ref{mnum: 11} и \ref{mnum: 10} с рассчитанными профилями амплитуды давления собственных векторов на частотах 3.29 кГц и 5.52 кГц, соответствующих максимумам энергии в спектре фильтрованных данных.
+Применение SAFE позволяет сопоставить ранее полученные значения углов с рассчитанными направлениями поляризации дипольных мод в рамках используемой математической модели породы. После применения частотной фильтрации к исходному сигналу выделим частоту в спектре сигналов приемников с максимальной энергией и построим собственные решения для двух дипольных мод на этой частоте. Учитывая более узкий частотный диапазон в фильтрованном сигнале, поляризация этих решений по нашему предположению должно быть близко результатам обработки Alford rotation. На рисунке \ref{fig:bs10_8_HTI45} приведено сравнение значений углов из таблицы \ref{tab:filter_process_results} для моделей в породе Bakken Shale с рассчитанными профилями амплитуды давления собственных векторов на частотах 3.29 кГц и 5.52 кГц, соответствующих максимумам энергии в спектре фильтрованных данных. Аналогичные данные для Cotton Valey Shale представлены на рисунке \ref{fig:cs15_10_HTI45}.
 
 \begin{figure}[h]
 \centering
 \begin{minipage}{0.49\linewidth}
-	\centering \textbf{Модель \ref{mnum: 11}}
+	\centering \textbf{Bakken Shale ($12.70 \times 10.16$)}
 	\psfragfig[width=0.49\linewidth,crop=pdfcrop]{./images/nonorth_alford/el10x8_inch_HTI_BS_f45_disp_modes+SAFE} \\
 \end{minipage}
 \begin{minipage}{0.49\linewidth}
-	\centering \textbf{Модель \ref{mnum: 10}}
+	\centering \textbf{Bakken Shale ($15.00 \times 10.00$)}
 	\psfragfig[width=0.49\linewidth,crop=pdfcrop]{./images/nonorth_alford/el15x10_HTI_BS_f45_disp_modes+SAFE} \\
 \end{minipage}
 \begin{minipage}{0.49\linewidth}
-	\centering \textbf{Модель \ref{mnum: 12}}
+	\centering \textbf{Cotton Valey Shale ($12.70 \times 10.16$)}
 	\psfragfig[width=0.49\linewidth,crop=pdfcrop]{./images/nonorth_alford/el10x8_inch_HTI_CS_f45_disp_modes+SAFE} \\
 \end{minipage}
 \begin{minipage}{0.49\linewidth}
-	\centering \textbf{Модель \ref{mnum: 9}}
+	\centering \textbf{Cotton Valey Shale ($15.00 \times 10.00$)}
 	\psfragfig[width=0.49\linewidth,crop=pdfcrop]{./images/nonorth_alford/el15x10_HTI_CS_f45_disp_modes+SAFE_new} \\
 \end{minipage}
 \caption{Дисперсионные кривые для основных задач. }
@@ -276,63 +277,54 @@ $$
 \end{figure}
 
 \begin{figure}[h]
-\centering
-\begin{tabular*}{\textwidth}{c|rr|rr|}
-\hline
-&\multicolumn{2}{|c|}{\textbf{Bakken Shale ($12.70 \times 10.16$)}} &\multicolumn{2}{c|}{\textbf{Bakken Shale ($15.00 \times 10.00$)}}\\ 
-\begin{minipage}{0.02\linewidth}
-\rotatebox{90}{\textit{Дипольная мода 1}} 
+%\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular*}{1\textwidth}{c|cc|cc|}
+\cline{2-5}
+&\multicolumn{2}{c|}{\textbf{Bakken Shale ($12.70 \times 10.16$)}} &\multicolumn{2}{c|}{\textbf{Bakken Shale ($15.00 \times 10.00$)}}\\ 
+\begin{minipage}{0.02\textwidth}
+\rotatebox{90}{\footnotesize \textit{Дипольная мода 1}} 
 \end{minipage}&
-%\begin{minipage}{0.23\linewidth}
-%	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_2kHz}		
-%\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_3_3kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_3_3kHz}		
 \end{minipage}&
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_5_5kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_5_5kHz}		
 \end{minipage}&
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_3_3kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_3_3kHz}		
 \end{minipage}&
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_5_5kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_5_5kHz}		
 \end{minipage}\\ 
-%\begin{minipage}{0.23\linewidth}
-%	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_8_6kHz}		
-%\end{minipage}
-\begin{minipage}{0.02\linewidth}
-\rotatebox{90}{\textit{Дипольная мода 2}} 
+%& & & & \\
+\begin{minipage}{0.02\textwidth}
+\rotatebox{90}{\footnotesize \textit{Дипольная мода 2}} 
 \end{minipage} &
-%\begin{minipage}{0.23\linewidth}
-%	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_2kHz}		
-%\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_3_3kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_3_3kHz}		
 \end{minipage} &
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_5_5kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_5_5kHz}		
 \end{minipage} &
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_3_3kHz}		
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_3_3kHz}		
 \end{minipage} &
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_5_5kHz}		
-\end{minipage} \\ \hline
-%\begin{minipage}{0.23\linewidth}
-%	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_8_6kHz}		
-%\end{minipage}
+\begin{minipage}{0.22\textwidth}
+	\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_5_5kHz}		
+\end{minipage} \\ 
+& \footnotesize НЧФ, 3.2895 кГц & \footnotesize ВЧФ, 5.5263 кГц & \footnotesize НЧФ, 3.2895 кГц & \footnotesize ВЧФ, 5.5263 кГц \\ \cline{2-5}
 \end{tabular*}
-\vspace{\baselineskip}
 \renewcommand{\arraystretch}{1.0}
 \footnotesize
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }clclcl}
-\tikz \draw (0,0) -- (1cm,0); & ортогональный & \tikz \draw[dashed] (0,0) -- (1cm,0); & ортогональный & \tikz \draw[dashdotted] (0,0) -- (1cm,0); & неортогональный    \\
-& без фильтрации & & с фильтрацией & & с фильтрацией \\
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }crccc}
+& 						 	& \tikz \draw (0,0) -- (1cm,0);  	& \tikz \draw[dashed] (0,0) -- (1cm,0);  	& \tikz \draw[dashdotted] (0,0) -- (1cm,0); \\
+& Результаты обработки 		& \textit{ортогональный} 			& \textit{ортогональный} 					& \textit{неортогональный}    			\\
+& Alford rotation:			& \textit{без фильтрации}		 	& \textit{с фильтрацией} 					& \textit{с фильтрацией} 	\\
 \end{tabular*}
 \renewcommand{\arraystretch}{1.0}
 \normalsize
-\caption{Результаты расчетов собственных векторов для Модели \ref{mnum: 11} и Модели \ref{mnum: 10}}
+\caption{Сравнение результатов обработки фильтрованных данных измерений в породе Bakken Shale и направлений поляризации двух дипольных мод, полученными SAFE. Здесь НЧФ и ВЧФ обозначают тип примененной к исходным данным фильтрации (низкочастотная и высокочастотная соответственно), значение частоты соответствует отображенному решению SAFE для собственного вектора дипольной моды.}
 \label{fig:bs10_8_HTI45}
 \end{figure}
 
@@ -385,58 +377,61 @@ $$
 %\end{figure}
 
 \begin{figure}[h]
-\centering
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }crl}
-& \textit{Низкочастотная фильтрация} & \textit{Высокочастотная фильтрация}\\
+%\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular*}{1\textwidth}{c|cc|cc|}
+\cline{2-5}
+&\multicolumn{2}{c|}{\textbf{Cotton Valey Shale ($12.70 \times 10.16$)}} &\multicolumn{2}{c|}{\textbf{Cotton Valey Shale ($15.00 \times 10.00$)}}\\
+\begin{minipage}{0.02\linewidth}
+\rotatebox{90}{\footnotesize\textit{Дипольная мода 1}} 
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_s_3_0kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_s_7_2kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_3_3kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_5_5kHz}		
+\end{minipage} \\
+\begin{minipage}{0.02\linewidth}
+\rotatebox{90}{\footnotesize\textit{Дипольная мода 2}} 
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_a_3_0kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_a_7_2kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_3_3kHz}		
+\end{minipage}&
+\begin{minipage}{0.22\linewidth}
+	\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_5_5kHz}		
+\end{minipage}\\
+& \footnotesize НЧФ, 3.0256 кГц & \footnotesize ВЧФ, 7.1667 кГц & \footnotesize НЧФ, 3.0256 кГц & \footnotesize ВЧФ, 7.1667 кГц \\ \cline{2-5}
 \end{tabular*}
-\begin{minipage}{0.04\linewidth}
-\rotatebox{90}{\textit{Дипольная мода 1}} 
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_2kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_3_3kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_5_5kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_8_6kHz}		
-\end{minipage}
-\begin{minipage}{0.04\linewidth}
-\rotatebox{90}{\textit{Дипольная мода 2}} 
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_2kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_3_3kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_5_5kHz}		
-\end{minipage}
-\begin{minipage}{0.23\linewidth}
-	\psfragfig[width=0.24\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_8_6kHz}		
-\end{minipage}
-\vspace{\baselineskip}
 \renewcommand{\arraystretch}{1.0}
 \footnotesize
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }clclcl}
-\tikz \draw (0,0) -- (1cm,0); & ортогональный & \tikz \draw[dashed] (0,0) -- (1cm,0); & ортогональный & \tikz \draw[dashdotted] (0,0) -- (1cm,0); & неортогональный    \\
-& без фильтрации & & с фильтрацией & & с фильтрацией \\
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }crccc}
+& 						 	& \tikz \draw (0,0) -- (1cm,0);  	& \tikz \draw[dashed] (0,0) -- (1cm,0);  	& \tikz \draw[dashdotted] (0,0) -- (1cm,0); \\
+& Результаты обработки 		& \textit{ортогональный} 			& \textit{ортогональный} 					& \textit{неортогональный}    			\\
+& Alford rotation:			& \textit{без фильтрации}		 	& \textit{с фильтрацией} 					& \textit{с фильтрацией} 	\\
 \end{tabular*}
 \renewcommand{\arraystretch}{1.0}
 \normalsize
-\caption{Результаты расчетов собственных векторов для Модели \ref{mnum: 9}}
+\caption{Сравнение результатов обработки фильтрованных данных измерений в породе Cotton Valey Shale и направлений поляризации двух дипольных мод, полученными SAFE. Здесь НЧФ и ВЧФ обозначают тип примененной к исходным данным фильтрации (низкочастотная и высокочастотная соответственно), значение частоты соответствует отображенному решению SAFE для собственного вектора дипольной моды.}
 \label{fig:cs15_10_HTI45}
 \end{figure}
 
 Представленные данные хорошо демонстрируют, что неортогональная версия Alford rotation дает более близкие оценки направлений поляризации дипольных волн на низких частотах. Поляризация в этом частотном диапазоне практически не отличается для случаев с эллиптичностью 25\% и 50\%. При этом направления поляризации основных мод, полученные по результатам моделирования SAFE, не совпадают с заданной ориентацией оси симметрии трансверсально-изотропной породы. Этот факт подтверждает неприменимость классического подхода оценки главных направлений ТИ породы в задачах такого типа. 
 
-Отметим, что близкие на первый взгляд к 45\textdegree значения угла классического ортогонального Alford rotation являются лишь случайным совпадением осредненных реальных поляризаций мод на этих частотах с заданным значением в модели. В пользу последнего утверждения также говорит и тот факт, что энергия недиагональных компонент при ортогональной обработке почти на 10\% выше. 
+Отметим, что близкие на первый взгляд к 45\textdegree  значения угла классического ортогонального Alford rotation являются лишь случайным совпадением осредненных реальных поляризаций мод на этих частотах с заданным значением в модели. В пользу последнего утверждения также говорит и тот факт, что энергия недиагональных компонент при ортогональной обработке почти на 10\% выше. 
 
-Результаты обработки нефильтрованного сигнала в рассмотренных задачах, как видно из данных таблиц, близки ориентацией мод на высоких частотах. Интересно, что при этом поляризация мод почти ортогональна и может не совпадать геометрически с ориентацией полуосей эллипса поперечного сечения скважины (см. модель \ref{mnum: 11}-\ref{mnum: 10}), как в случае с изотропной породой. При увеличении степени эллиптичности ствола это различие сокращается. Таким образом, даже при корректной (с точки зрения диагонализации матрицы измерений) работе алгоритма полученное значение угла на направление главной оси анизотропного материала может не отвечать ни физическим свойствам породы, ни геометрии задачи. 
+Результаты обработки нефильтрованного сигнала в рассмотренных задачах, как видно из данных таблиц, близки ориентацией мод на высоких частотах. Интересно, что при этом поляризация мод почти ортогональна и может не совпадать геометрически с ориентацией полуосей эллипса поперечного сечения скважины, как в случае с изотропной породой. При увеличении степени эллиптичности ствола это различие сокращается. Таким образом, даже при корректной (с точки зрения диагонализации матрицы измерений) работе алгоритма полученное значение угла на направление главной оси анизотропного материала может не отвечать ни физическим свойствам породы, ни геометрии задачи. 
 \clearpage
 
 \section{Заключение}
@@ -484,32 +479,19 @@ $$
 %\centering
 \caption{Параметры применяемых фильтров}
 \renewcommand{\arraystretch}{1.5}
-\textbf{Оконные фильтры} \\
-\begin{tabularx}{\textwidth}{|C|c|c|}
-\hline Обозначение & Величина окна, мс & Интервальное время, мкс/м  \\ \hline
-\hline \textbf{}\wfiltnum{\label{wfnum: 1}} & 0.5 & 987  \\ 
-\hline \textbf{}\wfiltnum{\label{wfnum: 2}} & 1.0 & 400  \\ 
-\hline \textbf{}\wfiltnum{\label{wfnum: 3}} & 0.5 & 320  \\
-\hline \textbf{}\wfiltnum{\label{wfnum: 4}} & 0.5 & 650  \\
-\hline \textbf{}\wfiltnum{\label{wfnum: 5}} & 0.6 & 320  \\
-\hline \textbf{}\wfiltnum{\label{wfnum: 6}} & 0.5 & 400  \\
-\hline 
-\end{tabularx} \\
 \textbf{Низкочастотные фильтры} \\
-\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|}
-\hline Обозначение & Частота дискретизации, Гц & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
-\hline \textbf{}\lffiltnum{\label{lffnum: 1}} & 1194892 & 1 & 80 & 4000 & 5000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 2}} & 1194892 & 1 & 80 & 5000 & 6000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 3}} & - & 1 & 80 & 3000 & 4000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 4}} & - & 1 & 80 & 3000 & 3500 \\ 
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|}
+\hline Обозначение & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 3}} & 1 & 80 & 3000 & 4000 \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 4}} & 1 & 80 & 3000 & 3500 \\ 
 \hline 
 \end{tabularx} \\
 \textbf{Высокочастотные фильтры} \\
-\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|}
-\hline Обозначение & Частота дискретизации, Гц & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
-\hline \textbf{}\hffiltnum{\label{hffnum: 1}} & 1194892 & 1 & 80 & 5000 & 4000 \\ 
-\hline \textbf{}\hffiltnum{\label{hffnum: 2}} & 1194892 & 1 & 80 & 6000 & 5000 \\ 
-\hline \textbf{}\hffiltnum{\label{hffnum: 3}} & - & 1 & 80 & 7000 & 6000 \\ 
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|}
+\hline Обозначение & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
+\hline \textbf{}\hffiltnum{\label{hffnum: 1}} & 1 & 80 & 5000 & 4000 \\ 
+\hline \textbf{}\hffiltnum{\label{hffnum: 2}} & 1 & 80 & 6000 & 5000 \\ 
+\hline \textbf{}\hffiltnum{\label{hffnum: 3}} & 1 & 80 & 7000 & 6000 \\ 
 \hline 
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
