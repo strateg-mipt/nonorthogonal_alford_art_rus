@@ -129,20 +129,21 @@ bookmarks=true,linktocpage=true,hyperindex=true]{hyperref}
 \hline 
 \end{tabularx} \\
 \textbf{Низкочастотные фильтры} \\
-\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|}
-\hline Обозначение & Частота дискретизации, Гц & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
-\hline \textbf{}\lffiltnum{\label{lffnum: 1}} & 1194892 & 1 & 80 & 4000 & 5000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 2}} & 1194892 & 1 & 80 & 5000 & 6000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 3}} & - & 1 & 80 & 3000 & 4000 \\ 
-\hline \textbf{}\lffiltnum{\label{lffnum: 4}} & - & 1 & 80 & 3000 & 3500 \\ 
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|}
+\hline Обозначение & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
+\hline \textbf{}\lffiltnum{\label{lffnum: 1}} & 1 & 80 & 4000 & 5000 \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 2}} & 1 & 80 & 5000 & 6000 \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 3}} & 1 & 80 & 3000 & 4000 \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 4}} & 1 & 80 & 3000 & 3500 \\ 
+\hline \textbf{}\lffiltnum{\label{lffnum: 5}} & 1 & 60 & 2500 & 3500 \\ 
 \hline 
 \end{tabularx} \\
 \textbf{Высокочастотные фильтры} \\
-\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|}
-\hline Обозначение & Частота дискретизации, Гц & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
-\hline \textbf{}\hffiltnum{\label{hffnum: 1}} & 1194892 & 1 & 80 & 5000 & 4000 \\ 
-\hline \textbf{}\hffiltnum{\label{hffnum: 2}} & 1194892 & 1 & 80 & 6000 & 5000 \\ 
-\hline \textbf{}\hffiltnum{\label{hffnum: 3}} & - & 1 & 80 & 7000 & 6000 \\ 
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|}
+\hline Обозначение & $A_{pass}, $ дБ & $A_{stop}, $ дБ & $F_{pass}, $ Гц & $F_{stop}, $ Гц \\ \hline
+\hline \textbf{}\hffiltnum{\label{hffnum: 1}} & 1 & 80 & 5000 & 4000 \\ 
+\hline \textbf{}\hffiltnum{\label{hffnum: 2}} & 1 & 80 & 6000 & 5000 \\ 
+\hline \textbf{}\hffiltnum{\label{hffnum: 3}} & 1 & 80 & 7000 & 6000 \\ 
 \hline 
 \end{tabularx}
 \renewcommand{\arraystretch}{1.0}
@@ -174,10 +175,11 @@ bookmarks=true,linktocpage=true,hyperindex=true]{hyperref}
 		Модель \ref{mnum: 12} с ВЧФ \ref{hffnum: 3} & 2.7739 & 3.2596 & -87.2261 & -87.4317  & 0.69  & 0.0045 & 0.0045\\		
 \hline	\textbf{Модель \ref{mnum: 13}} & \textbf{15.72} & \textbf{14.01} & \textbf{-74.28}  & \textbf{-72.8976}  & \textbf{3.09}  & \textbf{0.0517} & \textbf{0.0509} \\
 		Модель \ref{mnum: 13} с НЧФ \ref{lffnum: 1} & 55.702 & 36.6182 & -34.2982 & -28.5772  & 24.8  & 0.2122 & 0.1453 \\
+		Модель \ref{mnum: 13} с НЧФ \ref{lffnum: 5} & 70.5594 & 67.1189 & -19.4406 & -17.8821  & 5.0  & 0.0180 & 0.0172 \\
 		Модель \ref{mnum: 13} с ВЧФ \ref{hffnum: 2} & 14.2617 & 14.8978 & -75.7383 & -76.1548  & 1.0526  & 0.0074 & 0.0073 \\
 \hline	\textbf{Модель \ref{mnum: 14}} & \textbf{8.9734} & \textbf{7.3612} & \textbf{-81.03}  & \textbf{-80.60}  & \textbf{2.04}  & \textbf{0.01219} & \textbf{0.0115} \\
-		Модель \ref{mnum: 13} с НЧФ \ref{lffnum: 1} & 20.2834 & 15.8551 & -69.7166 & -60.8906  & 13.25  & 0.0594 & 0.0274 \\
-		Модель \ref{mnum: 13} с ВЧФ \ref{hffnum: 2} & 7.6511 & 8.3492 & -82.3489 & -82.5229  & 0.8721 & 0.00136 & 0.001267 \\				
+		Модель \ref{mnum: 14} с НЧФ \ref{lffnum: 1} & 20.2834 & 15.8551 & -69.7166 & -60.8906  & 13.25  & 0.0594 & 0.0274 \\
+		Модель \ref{mnum: 14} с ВЧФ \ref{hffnum: 2} & 7.6511 & 8.3492 & -82.3489 & -82.5229  & 0.8721 & 0.00136 & 0.001267 \\				
 \hline	
 
 \end{tabularx} 
