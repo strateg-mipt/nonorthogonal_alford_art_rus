@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[a4paper,11pt]{article}
 \newcommand{\tg}{\mathop{\mathrm{tg}}\nolimits}
 \newcommand{\divn}{\mathop{\mathrm{div}}\nolimits}
@@ -38,7 +39,24 @@ hyperindex=true]{hyperref}
 \usepackage{tikz}
 
 \begin{document}
-\section{Brief theory description}
+\section{Introduction}
+
+\section{Methods}
+The conventional cross-dipole acoustic logging technique involve a tool with two sets of transmitter-receiver arrays, each pointing to the X- or Y-axes of the Cartesian coordinates. During measurement procedure these arrays form four-component dipole data which include two in-line components (XX and YY) and two cross-line components (XY and YX), where the first letter refers to source orientation and the second letter refers ro receiver orientation. The standard widely used model represent waves in borehole as two orthogonally polarized plane waves propagating separately with different velocities. From a mathematical point of view the $2\times2$ matrix $\mathbf{R}$ formed from all data components could be represented in following form
+
+\begin{equation}
+\mathbf{R} = \mathbf{P} \ \mathbf{D} \ \mathbf{P}^T, \label{eq:alford_symmetric} 
+\end{equation}
+where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure waves propagation. In the canonical symmetric Alford rotation \cite{Alford1986} procedure transformation matrix $\mathbf{P}$ is just a rotation on angle $\theta$
+
+\begin{equation*}
+\mathbf{P} = \left\|
+\begin{array}{cc}
+\cos \theta &-\sin \theta \\ 
+\sin \theta & \cos \theta
+\end{array} 
+\right\| 
+\end{equation*}
 
 According to Dellinger et al. \cite{Dellinger1998}, the symmetric Alford diagonalization modeling equation can be written as
 $$
