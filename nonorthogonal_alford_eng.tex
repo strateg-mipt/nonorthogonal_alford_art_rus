@@ -42,12 +42,12 @@ hyperindex=true]{hyperref}
 \section{Introduction}
 
 \section{Methods}
-The conventional cross-dipole acoustic logging technique involve a tool with two sets of transmitter-receiver arrays, each pointing to the X- or Y-axes of the Cartesian coordinates. During measurement procedure these arrays form four-component dipole data which include two in-line components (XX and YY) and two cross-line components (XY and YX), where the first letter refers to source orientation and the second letter refers ro receiver orientation. The standard widely used model represent waves in borehole as two orthogonally polarized plane waves propagating separately with different velocities. From a mathematical point of view the $2\times2$ matrix $\mathbf{R}$ formed from all data components could be represented in following form
+A cross-dipole acoustic logging tool consists of two sets of transmitter-receiver arrays, each pointing to one of orthogonal directions associated with the tool. During measurement procedure these arrays form four-component dipole data which include two in-line components and two cross-line components, that corresponds to various mutual orientation of active source and receivers. In classics each of these components is a linear combination of two orthogonally polarized wave modes which propagates along borehole without interaction. Due to principle of reciprocity the cross-line components should be equal and therefore the $2\times 2$ matrix $\mathbf{R}$ consisting of measurement data components could be represented in the following form
 
 \begin{equation}
 \mathbf{R} = \mathbf{P} \ \mathbf{D} \ \mathbf{P}^T, \label{eq:alford_symmetric} 
 \end{equation}
-where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure waves propagation. In the canonical symmetric Alford rotation \cite{Alford1986} procedure transformation matrix $\mathbf{P}$ is just a rotation on angle $\theta$
+where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure modes propagation. In the canonical symmetric Alford rotation \cite{Alford1986} procedure the transformation matrix $\mathbf{P}$ is just a rotation matrix on angle $\theta$
 
 \begin{equation*}
 \mathbf{P} = \left\|
@@ -58,70 +58,17 @@ where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure waves propag
 \right\| 
 \end{equation*}
 
-According to Dellinger et al. \cite{Dellinger1998}, the symmetric Alford diagonalization modeling equation can be written as
-$$
-\left(
-\begin{array}{cc}
-\mathrm{XX} & \mathrm{YX} \\
-\mathrm{XY} & \mathrm{YY} \\
-\end{array}
-\right) = \mathbf{R} = \mathbf{P} \ \mathbf{D} \ \mathbf{P}^{\mathrm{T}},
-$$
-and  the corresponding processing equation is
-$$
-	\mathbf{D} = \mathbf{P}^{-1} \ \mathbf{R} \ \mathbf{P}^{-\mathrm{T}}.
-$$
-where $ \mathbf{P}$ is chosen to make $ \mathbf{D}$ diagonal.
-\\
-
-\begin{parcolumns}[colwidths={1=0.5\linewidth},rulebetween]{2}
-
-\colchunk{
-\textbf{Orthogonal Alford rotation}
-\begin{align*}
-\mathbf{P} & = \left(
-\begin{array}{cc}
-\cos \theta & -\sin \theta \\ 
-\sin \theta & \cos \theta
-\end{array} 
-\right) \\
-\mathbf{P}^{-1} & = \left(
-\begin{array}{cc}
-\cos \theta & \sin \theta \\ 
--\sin \theta & \cos \theta
-\end{array} 
-\right)
-\end{align*} \\
-Solution: \\$\theta_1^o,\theta_2^o$, where $\theta_1^o = \theta, \quad \theta_2^o = \theta + \pi/2$.
-}
-\colchunk{
-\textbf{Non-orthogonal Alford rotation}
-\begin{align*}
-\mathbf{P} &= \left(
+The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation angle $\theta$ is found by minimization of non-diagonal components of $\mathbf{D}$. Though the considered algorithm is very effective and stable in many practical cases it also contain some fundamental drawbacks. For instance, the particle-motion directions associated with shear waves propagating in arbitrary ray directions in orthorhombic media need not be orthogonal, so the data matrix can't be diagonalized with Alford rotation transformations. However, \cite{Dellinger1997} showed that data matrix recorded by a cross-dipole logging tool should be symmetric regardless of heterogeneity and anisotropy. They proposed a symmetric generalization of Alford rotation procedure which involve minimization by two angles $\theta$ and $\eta$ for corresponding transformation matrix 
+\begin{equation*}
+\mathbf{P} = \left\|
 \begin{array}{cc}
 \cos \theta & -\sin (\theta+\eta) \\ 
 \sin \theta & \cos (\theta+\eta)
 \end{array} 
-\right) \\
-\mathbf{P}^{-1} &= \frac{1}{\cos \eta} \left(
-\begin{array}{cc}
-\cos (\theta+\eta) & \sin (\theta+\eta) \\ 
--\sin \theta & \cos (\theta)
-\end{array} 
-\right)
-\end{align*}\\
-Solution: \\$\theta_1^n,\theta_2^n$, where $\theta_1^n = \theta + \eta, \quad \theta_2^n = \theta + \pi/2$.
-\\
-}
-\colplacechunks
-\end{parcolumns}
+\right\|
+\end{equation*}
 
-
-
-For the given recorder data matrix $\mathbf{R}$ the values for $\theta$ and $\eta$ are chosen to minimize the sum of the squares of the off-diagonal entries of $\mathbf{D}$, averaged over the full waveform (no time window):
-$$
-	E_{cross} = \left\langle D^2_{12} + D^2_{21} \right\rangle \rightarrow \mathrm{min}
-$$
+For the given recorder data matrix $\mathbf{R}$ the values for $\theta$ and $\eta$ are chosen to minimize the sum of the squares of the off-diagonal entries of $\mathbf{D}$, averaged over the full waveform (no time window). If $\eta=0$ method reduces to standard Alford rotation.
 
 \section{Models description}
 
