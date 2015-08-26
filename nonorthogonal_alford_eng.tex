@@ -58,7 +58,7 @@ where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure modes propag
 \right\| 
 \end{equation*}
 
-The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation angle $\theta$ is found by minimization of non-diagonal components of $\mathbf{D}$. Though the considered algorithm is very effective and stable in many practical cases it also contain some fundamental drawbacks. For instance, the particle-motion directions associated with shear waves propagating in arbitrary ray directions in orthorhombic media need not be orthogonal, so the data matrix can't be diagonalized with Alford rotation transformations. However, \cite{Dellinger1997} showed that data matrix recorded by a cross-dipole logging tool should be symmetric regardless of heterogeneity and anisotropy. They proposed a symmetric generalization of Alford rotation procedure which involve minimization by two angles $\theta$ and $\eta$ for corresponding transformation matrix 
+The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation angle $\theta$ is found by minimization of non-diagonal components of $\mathbf{D}$. Alford rotation is effective and stable in many practical cases it has limitations. Dellinger and Nolte \cite{Dellinger1997} showed that data matrix symmetry is preserved in cases of complex anisotropy and heterogeneity though dipole modes need not be orthogonal. They offered a generalization of standard algorithm where the first mode has an angle of $\theta$, measured from some axis, and the other mode has an angle $\theta+\eta$. The corresponding transformation matrix \cite{Dellinger1998}
 \begin{equation*}
 \mathbf{P} = \left\|
 \begin{array}{cc}
@@ -67,8 +67,7 @@ The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation
 \end{array} 
 \right\|
 \end{equation*}
-
-For the given recorder data matrix $\mathbf{R}$ the values for $\theta$ and $\eta$ are chosen to minimize the sum of the squares of the off-diagonal entries of $\mathbf{D}$, averaged over the full waveform (no time window). If $\eta=0$ method reduces to standard Alford rotation.
+If $\eta=0$ method reduces to standard Alford rotation.
 
 \section{Models description}
 
