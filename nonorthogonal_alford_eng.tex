@@ -58,16 +58,18 @@ where $\mathbf{D}$ -- diagonal matrix which corresponds to the pure modes propag
 \right\| 
 \end{equation*}
 
-The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation angle $\theta$ is found by minimization of non-diagonal components of $\mathbf{D}$. Alford rotation is effective and stable in many practical cases it has limitations. Dellinger and Nolte \cite{Dellinger1997} showed that data matrix symmetry is preserved in cases of complex anisotropy and heterogeneity though dipole modes need not be orthogonal. They offered a generalization of standard algorithm where the first mode has an angle of $\theta$, measured from some axis, and the other mode has an angle $\theta+\eta$. The corresponding transformation matrix \cite{Dellinger1998}
+Alford rotation is effective and stable in many practical cases, but it has drawbacks. Dellinger and Nolte \cite{Dellinger1997} showed that data matrix symmetry is preserved in cases of complex anisotropy and heterogeneity though dipole modes need not be orthogonal. As symmetric matrix always have orthogonal basis, the result obtained by Alford rotation states to have no physical meaning. A generalization of standard algorithm can give correct directions if transformation matrix \cite{Dellinger1998} is 
 \begin{equation*}
 \mathbf{P} = \left\|
 \begin{array}{cc}
 \cos \theta & -\sin (\theta+\eta) \\ 
 \sin \theta & \cos (\theta+\eta)
 \end{array} 
-\right\|
+\right\|.
 \end{equation*}
-If $\eta=0$ method reduces to standard Alford rotation.
+The first mode has an angle of $\theta$, measured from some axis, and the other mode has an angle $\theta+\eta$. Therefore two non-orthogonal eigenvectors corresponding to different modes are introduced. If $\eta=0$ method reduces to standard Alford rotation. The real data matrix $\mathbf{R}$ is usually not symmetrical, therefore rotation angles $\theta$ and $\eta$ are found by minimization of non-diagonal components of $\mathbf{D}$.
+
+Another disadvantage of classic Alford rotation is ignoring of possible additional anisotropy factors, like fractures or stress-induced anisotropy. When processing logging data with so called "cross-over" of dispersion curves, Nolte \cite{Nolte1997} reports that obtained angle depends on time window used in processing. This indicates changes in rotation angle for different frequency ranges. Similar results can be observed in non-cylindrical boreholes. Earlier Leslie and Randall \cite{Leslie1992} showed that in elliptical borehole in isotropic formation two dipole modes also exist and propagate with different velocities. As one could expect, their particle motion directions aligned with ellipse axes. The problem becomes more complex in anisotropic formation if axes of ellipse don't coincide with symmetry axes of anisotropic media. In this case dipole modes eigenvectors has a strong frequency dependence and could be sufficiently non-orthogonal at a medium frequency range \cite{Zharnikov2015}.
 
 \section{Models description}
 
