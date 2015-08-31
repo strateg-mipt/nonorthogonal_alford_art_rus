@@ -32,11 +32,15 @@ hyperindex=true]{hyperref}
 \usepackage{subfigure}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
 \graphicspath{ {./image_test/} }
 \usepackage[pdftex, left=1in, right=1in, top=1in, bottom=2cm]{geometry}
 
 \usepackage{parcolumns}
 \usepackage{tikz}
+
+\newcolumntype{C}{>{\centering}X}
 
 \begin{document}
 \section{Introduction}
@@ -71,28 +75,77 @@ The first mode has an angle of $\theta$, measured from some axis, and the other 
 
 Another disadvantage of classic Alford rotation is ignoring of possible additional anisotropy factors, like fractures or stress-induced anisotropy. When processing logging data with so called "cross-over" of dispersion curves, Nolte \cite{Nolte1997} reports that obtained angle depends on time window used in processing. This indicates changes in rotation angle for different frequency ranges. Similar results can be observed in non-cylindrical boreholes. Earlier Leslie and Randall \cite{Leslie1992} showed that in elliptical borehole in isotropic formation two dipole modes also exist and propagate with different velocities. As one could expect, their particle motion directions aligned with ellipse axes. The problem becomes more complex in anisotropic formation if axes of ellipse don't coincide with symmetry axes of anisotropic media. In this case dipole modes eigenvectors has a strong frequency dependence and could be sufficiently non-orthogonal at a medium frequency range \cite{Zharnikov2015}.
 
-\section{Models description}
+In this paper we study application of orthogonal and non-orthogonal Alford rotation to processing of logging data in elliptical boreholes in anisotropic formation. The input data is obtained with numerical spectral element 3D simulations \cite{Komatitsch1999}. Due to expected rotation of modes eigenvectors, we employ lowpass and bandpass FIR filters to initial data before processing. The ratio $E_{rel}$ of non-diagonal energy components of the rotated matrix $\mathbf{D}$ to energy of all components is used as quality indicator. 
 
-\begin{minipage}[c]{0.47\linewidth}	
-\begin{center}
-		Borehole geometry \\
-		\includegraphics[width=1\linewidth]{./images/nonorth_alford/scheme_bh_image_hr.jpg}	  
-\end{center}	  		
-\end{minipage} \hfill
-\begin{minipage}[c]{0.47\linewidth}
-\begin{center}
-		TI axis orientation\\
-			\includegraphics[width=1\linewidth]{./images/nonorth_alford/TI_axes_desc.eps}		
-\end{center}
-\end{minipage}
+Following the idea of \cite{Zharnikov2015}, the independent calculation of modes eigenvectors is provided with semi-analytical spectral element method. The method is valid for homogeneous formations along symmetry axis of a borehole and very effective for getting eigenvectors directions at each frequency separately. 
 
-\begin{description}
-\item[Model 1:] Cylindrical borehole  $R_1=R_2=20$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree)
-\item[Model 2:] Elliptical borehole $R_1=15$ cm, $R_2=10$ cm, Isotropic slow formation ($\rho=2000$ kg/m$^3$, $V_p=2545$ m/s, $V_s=1018$ m/s) 
-\item[Model 3:] Elliptical borehole $R_1=20$ cm, $R_2=10$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
-\end{description}
+%\section{Models description}
+%
+%\begin{minipage}[c]{0.47\linewidth}	
+%\begin{center}
+%		Borehole geometry \\
+%		\includegraphics[width=1\linewidth]{./images/nonorth_alford/scheme_bh_image_hr.jpg}	  
+%\end{center}	  		
+%\end{minipage} \hfill
+%\begin{minipage}[c]{0.47\linewidth}
+%\begin{center}
+%		TI axis orientation\\
+%			\includegraphics[width=1\linewidth]{./images/nonorth_alford/TI_axes_desc.eps}		
+%\end{center}
+%\end{minipage}
+%
+%\begin{description}
+%\item[Model 1:] Cylindrical borehole  $R_1=R_2=20$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree)
+%\item[Model 2:] Elliptical borehole $R_1=15$ cm, $R_2=10$ cm, Isotropic slow formation ($\rho=2000$ kg/m$^3$, $V_p=2545$ m/s, $V_s=1018$ m/s) 
+%\item[Model 3:] Elliptical borehole $R_1=20$ cm, $R_2=10$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
+%\end{description}
 
 \section{Results}
+\subsection{Models configuration}
+The typical numerical 3D model used for simulation of acoustic logging data contain an elliptic borehole filled with water ($\rho = 1000 \ kg/m^3$, $V_f=1500 \ m/s$) in anisotropic elastic medium. There is dipole source in the center of borehole directed at some angle different to ellipse axis (usually 60\textdegree or 150\textdegree). The source emit an acoustic wave modulated by first derivative of Blackman-Harris pulse with central frequency of 4 kHz. The receivers array consist of 16 layers with axial spacing of 9.12 cm and offset 1.82 m. Each layer contain 4 azimuthal receivers at radius of 2.84 cm which are relevant to the directions of sources.
+
+As a surrounding material, we use Bakken Shale and Cotton Valley Shale which have a transversely-isotropic type (TI) of symmetry. The elastic moduli of the materials are given in Table \ref{tab:properties}. These formations are often used as a typical fast anisotropic formation for simulations. In this paper we consider the case when the symmetry axis is inclined by 90\textdegree with respect to the borehole axis (so called HTI), but in cross-section plane it can have an arbitrary orientation angle $\theta$. We take $\theta$ as an angle measured counterclockwise from the major axis of ellipse. 
+
+\begin{table}[H]
+\footnotesize
+%\centering
+\caption{Material properties}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|C|c|c|c|c|c|c|c|}
+\hline \multirow{2}{*}{Name}  & Density & \multicolumn{6}{c|}{Elastic moduli, GPa} \\ 
+\cline{3-8}  & kg/m$^3$ & $C_{11}$ & $C_{12}$ & $C_{13}$ & $C_{33}$ & $C_{44}$ & $C_{66}$ \\ \hline
+\hline Cotton Valey Shale & 2640 & 74.73 & 14.75 & 25.29 & 58.84 & 22.05 & 29.99 \\ 
+\hline Bakken Shale & 2230 & 40.9 & 10.3 & 8.5 & 26.9 & 10.5 & 15.3 \\ 
+\hline 
+\end{tabularx} 
+\label{tab:properties}
+\renewcommand{\arraystretch}{1.0}
+\end{table}
+
+\subsection{Processing of raw data}
+First of all, difference between orthogonal and non-orthogonal approach was checked on raw numerical data without filtering. For this purpose, we considered two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
+
+\begin{table}[h]
+\footnotesize
+%\centering
+\caption{Processing results by Alford rotation}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{|X|rr|rr|r|rr|}
+\hline	
+				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{rel}^o, \%$} & \multicolumn{1}{c|}{$E_{rel}^n, \%$} \\ \hline
+\hline Bakken Shale ($12.70 \times 10.16$) & 15.6 & 14.7 & -74.4 & -73.9  & 1.4  & 3.0 & 3.0 \\
+\hline Bakken Shale ($15.00 \times 10.00$) & 8.4 & 8.1 & -81.6 & -81.6 & 0.3 & 1.7 & 1.7 \\
+\hline Cotton Valey Shale ($12.70 \times 10.16$) & 3.3 & 3.0 & -86.7 & -86.7  & 0.3 & 0.8 & 0.8 \\ 
+\hline Cotton Valey Shale ($15.00 \times 10.00$) & 1.6 & 1.8 & -88.4 & -88.4  & 0.00  & 0.6 & 0.6 \\	   
+ 	   \hline
+\end{tabularx} 
+\begin{flushleft}
+* here $\theta_1^o,\theta_2^o$ è $\theta_1^n,\theta_2^n$ corresponds to orthogonal and non-orthogonal Alford rotation result. $E_{rel}$ is a ratio of non-diagonal components energy to full energy.
+\end{flushleft}
+\label{tab:std_process_results}
+\renewcommand{\arraystretch}{1.0}
+\end{table}
+
 \subsection*{Raw data processing}
 
 \renewcommand{\arraystretch}{1.5}
@@ -307,8 +360,8 @@ Two filters or time window were applied to raw Model 3 data before processing.
 
 \include{nonorth_alford_SAFE}
 
-%\bibliography{./library/library}
-\bibliography{../../../Literature/TeX_Library/library}
+\bibliography{c:/Users/German/Documents/TeX_Library/library}
+%\bibliography{../../../Literature/TeX_Library/library} %
 \bibliographystyle{unsrt}
 %\bibliographystyle{plainnat_no_url}
 
