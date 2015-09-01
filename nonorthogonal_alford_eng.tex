@@ -123,7 +123,7 @@ As a surrounding material, we use Bakken Shale and Cotton Valley Shale which hav
 \end{table}
 
 \subsection{Processing of raw data}
-First of all, difference between orthogonal and non-orthogonal approach was checked on raw numerical data without filtering. For this purpose, we considered two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
+First of all, difference between orthogonal and non-orthogonal approach was checked on raw numerical data without filtering. For this purpose, we considered two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree  and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
 
 \begin{table}[h]
 \footnotesize
@@ -136,7 +136,7 @@ First of all, difference between orthogonal and non-orthogonal approach was chec
 \hline Bakken Shale ($12.70 \times 10.16$) & 15.6 & 14.7 & -74.4 & -73.9  & 1.4  & 3.0 & 3.0 \\
 \hline Bakken Shale ($15.00 \times 10.00$) & 8.4 & 8.1 & -81.6 & -81.6 & 0.3 & 1.7 & 1.7 \\
 \hline Cotton Valey Shale ($12.70 \times 10.16$) & 3.3 & 3.0 & -86.7 & -86.7  & 0.3 & 0.8 & 0.8 \\ 
-\hline Cotton Valey Shale ($15.00 \times 10.00$) & 1.6 & 1.8 & -88.4 & -88.4  & 0.00  & 0.6 & 0.6 \\	   
+\hline Cotton Valey Shale ($15.00 \times 10.00$) & 1.6 & 1.8 & -88.4 & -88.4  & 0.0 & 0.6 & 0.6 \\	   
  	   \hline
 \end{tabularx} 
 \begin{flushleft}
@@ -144,6 +144,29 @@ First of all, difference between orthogonal and non-orthogonal approach was chec
 \end{flushleft}
 \label{tab:std_process_results}
 \renewcommand{\arraystretch}{1.0}
+\end{table}
+
+The spectral analysis reveals that the major energy of the signal is in the frequency range from 2 to 8 kHz. In this range dispersion curves of dipole modes show a significant change in the velocity of wave propagation. For each dataset we chose a lowpass filter, based on signal spectrum and dispersion, to make Alford rotation for low frequencies only. Processing of filtered data results in a more close values of angle of TI axis orientation and sufficient non-orthogonality of modes eigenvectors (Table \ref{tab:filter_process_results}).
+
+\begin{table}[h]
+	\footnotesize
+	\centering
+	\caption{Processing results with lowpass filters}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabularx}{\textwidth}{|X|rr|rr|r|rr|}
+		\hline
+		&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{rel}^o, \%$} & \multicolumn{1}{c|}{$E_{rel}^n, \%$} \\ \hline
+		\hline	Bakken Shale ($12.70 \times 10.16$) &  49.4 & 40.5 & -40.6 & -35.4  & 14.1 & 2.0 & 1.2\\
+		\hline	Bakken Shale ($15.00 \times 10.00$) &  41.2 & 25.7 & -48.8 & -32.0  & 32.3 & 22.1 & 20.0\\
+		\hline  Cotton Valey Shale ($12.70 \times 10.16$) & 48.4 & 39.7 & -41.6 & -35.5  & 14.8  & 9.7 & 7.0 \\
+		\hline	Cotton Valey Shale ($15.00 \times 10.00$) & 6.0 & 7.7 & -84.0 & -56.6  & 25.7  & 7.9 & 7.3 \\
+		\hline	
+	\end{tabularx} 
+	\begin{flushleft}
+		* здесь $\theta_1^o,\theta_2^o$ и $\theta_1^n,\theta_2^n$ соответствуют результатам, полученным ортогональной и неортогональной версией алгоритма. Величина $E_{rel}$ обозначает отношение энергии недиагональных компонент матрицы измерений к полной энергии.
+	\end{flushleft}
+	\label{tab:filter_process_results}
+	\renewcommand{\arraystretch}{1.0}
 \end{table}
 
 \subsection*{Raw data processing}
