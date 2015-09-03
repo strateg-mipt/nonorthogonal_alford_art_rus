@@ -79,27 +79,6 @@ In this paper we study application of orthogonal and non-orthogonal Alford rotat
 
 Following the idea of \cite{Zharnikov2015}, the independent calculation of modes eigenvectors is provided with semi-analytical spectral element method. The method is valid for homogeneous formations along symmetry axis of a borehole and very effective for getting eigenvectors directions at each frequency separately. 
 
-%\section{Models description}
-%
-%\begin{minipage}[c]{0.47\linewidth}	
-%\begin{center}
-%		Borehole geometry \\
-%		\includegraphics[width=1\linewidth]{./images/nonorth_alford/scheme_bh_image_hr.jpg}	  
-%\end{center}	  		
-%\end{minipage} \hfill
-%\begin{minipage}[c]{0.47\linewidth}
-%\begin{center}
-%		TI axis orientation\\
-%			\includegraphics[width=1\linewidth]{./images/nonorth_alford/TI_axes_desc.eps}		
-%\end{center}
-%\end{minipage}
-%
-%\begin{description}
-%\item[Model 1:] Cylindrical borehole  $R_1=R_2=20$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree)
-%\item[Model 2:] Elliptical borehole $R_1=15$ cm, $R_2=10$ cm, Isotropic slow formation ($\rho=2000$ kg/m$^3$, $V_p=2545$ m/s, $V_s=1018$ m/s) 
-%\item[Model 3:] Elliptical borehole $R_1=20$ cm, $R_2=10$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
-%\end{description}
-
 \section{Results}
 \subsection{Models configuration}
 The typical numerical 3D model used for simulation of acoustic logging data contain an elliptic borehole filled with water ($\rho = 1000 \ kg/m^3$, $V_f=1500 \ m/s$) in anisotropic elastic medium. There is dipole source in the center of borehole directed at some angle different to ellipse axis (usually 60\textdegree or 150\textdegree). The source emit an acoustic wave modulated by first derivative of Blackman-Harris pulse with central frequency of 4 kHz. The receivers array consist of 16 layers with axial spacing of 9.12 cm and offset 1.82 m. Each layer contain 4 azimuthal receivers at radius of 2.84 cm which are relevant to the directions of sources.
@@ -122,7 +101,7 @@ As a surrounding material, we use Bakken Shale and Cotton Valley Shale which hav
 \renewcommand{\arraystretch}{1.0}
 \end{table}
 
-\subsection{Processing of raw data}
+\subsection{Processing of initial data}
 First of all, difference between orthogonal and non-orthogonal approach was checked on raw numerical data without filtering. For this purpose, we considered two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree  and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
 
 \begin{table}[h]
@@ -169,222 +148,329 @@ The spectral analysis reveals that the major energy of the signal is in the freq
 	\renewcommand{\arraystretch}{1.0}
 \end{table}
 
-\subsection*{Raw data processing}
+\subsection{SAFE comparison}
 
-\renewcommand{\arraystretch}{1.5}
-\footnotesize
-\begin{tabular}{c|rr|rr|r|ll}
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
-\hline Model 1 & -44.9996 & -44.9998 & 45.0004 & 45.0003 & ~0 & $3.1640 \cdot 10^{-10}$ & $3.1385 \cdot 10^{-10}$ \\ 
-	   Model 2 & -0.0125 & -0.0127 & -90.0125 & -90.0082 & ~0 & $5.1932 \cdot 10^{-6}$ & $5.1901 \cdot 10^{-6}$ \\ 
- 	   Model 3 & \textbf{-10.5111} & \textbf{-26.3606} & \textbf{79.4889} & \textbf{80.4622} & \textbf{16.8228} & \color{red}{\textbf{0.1726}} & \color{red}{\textbf{0.1511}} \\
- 	    \hline 
-\end{tabular} 
-\\ \\
-\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
-\renewcommand{\arraystretch}{1.0}
-\normalsize
-\vspace{\baselineskip}
+The semi-analytical finite element method used for independent calculation the eigenvectors of dipole modes and further comparison with Alford rotation results. Following the methodology in \cite{Zharnikov2015}, we obtain eigensolution for pressure field for each of dipole modes for several frequencies within the considered range. As the initial signal have a continuous spectral density, we used for comparison an eigenvector corresponded to the frequency with maximum amplitude in spectrum of signal. The figures \ref{fig:bs10_8_HTI45} and \ref{fig:cs15_10_HTI45} show the comparison results for Bakken Shale and Cotton Shale. The observed non-orthogonality of SAFE eigenvectors fits the results of rotation at a low frequencies. We also observe a confident match of polarization directions and orthogonality of eigenvectors at high frequencies.
 
-\textbf{Plot of TI axis direction obtained for Model 3}\\
+\begin{figure}[h]
+	%\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular*}{1\textwidth}{c|cc|cc|}
+		\cline{2-5}
+		&\multicolumn{2}{c|}{\textbf{Bakken Shale ($12.70 \times 10.16$)}} &\multicolumn{2}{c|}{\textbf{Bakken Shale ($15.00 \times 10.00$)}}\\ 
+		\begin{minipage}{0.02\textwidth}
+			\rotatebox{90}{\footnotesize \textit{ƒипольна€ мода 1}} 
+		\end{minipage}&
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_3_3kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_s_5_5kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_3_3kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_s_5_5kHz}		
+		\end{minipage}\\ 
+		%& & & & \\
+		\begin{minipage}{0.02\textwidth}
+			\rotatebox{90}{\footnotesize \textit{ƒипольна€ мода 2}} 
+		\end{minipage} &
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_3_3kHz}		
+		\end{minipage} &
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_10x8_HTI_45/P_a_5_5kHz}		
+		\end{minipage} &
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_3_3kHz}		
+		\end{minipage} &
+		\begin{minipage}{0.22\textwidth}
+			\psfragfig[width=0.23\textwidth,crop=pdfcrop]{./images/SAFE/SAFE_BS_15x10_HTI_45/P_a_5_5kHz}		
+		\end{minipage} \\ 
+		& \footnotesize Ќ„‘, 3.29 к√ц & \footnotesize ¬„‘, 5.53 к√ц & \footnotesize Ќ„‘, 3.29 к√ц & \footnotesize ¬„‘, 5.53 к√ц \\ \cline{2-5}
+	\end{tabular*}
+	\renewcommand{\arraystretch}{1.0}
+	\footnotesize
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }crccc}
+		& 						 	& \tikz \draw (0,0) -- (1cm,0);  	& \tikz \draw[dashed] (0,0) -- (1cm,0);  	& \tikz \draw[dashdotted] (0,0) -- (1cm,0); \\
+		& –езультаты обработки 		& \textit{ортогональный} 			& \textit{ортогональный} 					& \textit{неортогональный}    			\\
+		& Alford rotation:			& \textit{без фильтрации}		 	& \textit{с фильтрацией} 					& \textit{с фильтрацией} 	\\
+	\end{tabular*}
+	\renewcommand{\arraystretch}{1.0}
+	\normalsize
+	\caption{—равнение результатов обработки фильтрованных данных измерений в породе Bakken Shale и направлений пол€ризации двух дипольных мод, полученными SAFE. «десь Ќ„‘ и ¬„‘ обозначают тип примененной к исходным данным фильтрации (низкочастотна€ и высокочастотна€ соответственно), значение частоты соответствует отображенному цветом решению SAFE дл€ собственного вектора дипольной моды.}
+	\label{fig:bs10_8_HTI45}
+\end{figure}
 
-\begin{minipage}[c]{0.47\linewidth}	
-\begin{center}
-		Orthogonal Alford rotation \\
-		\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_rot4c_scheme}	  		
-\end{center}	  		
-\end{minipage} 
-\begin{minipage}[c]{0.47\linewidth}
-\begin{center}
-		Non-orthogonal Alford rotation\\
-			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_scheme}			
-\end{center}
-\end{minipage} \\
-\footnotesize Here blue lines denote directions obtained from Alford processing; black arrows --- initial direction of dipole sources in numerical calculations.
-\normalsize
-\vspace{\baselineskip}
-\vspace{\baselineskip} 
+\begin{figure}[h]
+	%\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular*}{1\textwidth}{c|cc|cc|}
+		\cline{2-5}
+		&\multicolumn{2}{c|}{\textbf{Cotton Valey Shale ($12.70 \times 10.16$)}} &\multicolumn{2}{c|}{\textbf{Cotton Valey Shale ($15.00 \times 10.00$)}}\\
+		\begin{minipage}{0.02\linewidth}
+			\rotatebox{90}{\footnotesize\textit{ƒипольна€ мода 1}} 
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_s_3_0kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_s_7_2kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_3_3kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_5_5kHz}		
+		\end{minipage} \\
+		\begin{minipage}{0.02\linewidth}
+			\rotatebox{90}{\footnotesize\textit{ƒипольна€ мода 2}} 
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_a_3_0kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_a_7_2kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_3_3kHz}		
+		\end{minipage}&
+		\begin{minipage}{0.22\linewidth}
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_5_5kHz}		
+		\end{minipage}\\
+		& \footnotesize Ќ„‘, 3.03 к√ц & \footnotesize ¬„‘, 7.17 к√ц & \footnotesize Ќ„‘, 3.03 к√ц & \footnotesize ¬„‘, 7.17 к√ц \\ \cline{2-5}
+	\end{tabular*}
+	\renewcommand{\arraystretch}{1.0}
+	\footnotesize
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }crccc}
+		& 						 	& \tikz \draw (0,0) -- (1cm,0);  	& \tikz \draw[dashed] (0,0) -- (1cm,0);  	& \tikz \draw[dashdotted] (0,0) -- (1cm,0); \\
+		& –езультаты обработки 		& \textit{ортогональный} 			& \textit{ортогональный} 					& \textit{неортогональный}    			\\
+		& Alford rotation:			& \textit{без фильтрации}		 	& \textit{с фильтрацией} 					& \textit{с фильтрацией} 	\\
+	\end{tabular*}
+	\renewcommand{\arraystretch}{1.0}
+	\normalsize
+	\caption{—равнение результатов обработки фильтрованных данных измерений в породе Cotton Valey Shale и направлений пол€ризации двух дипольных мод, полученными SAFE. «десь Ќ„‘ и ¬„‘ обозначают тип примененной к исходным данным фильтрации (низкочастотна€ и высокочастотна€ соответственно), значение частоты соответствует отображенному цветом решению SAFE дл€ собственного вектора дипольной моды.}
+	\label{fig:cs15_10_HTI45}
+\end{figure}
 
-\begin{minipage}[h]{0.47\linewidth}	
-\begin{center} 
-$E_{cross}$ function dependence on $\theta$ and $\eta$ (Model 3)\\
-			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/solution_min_gs_rot4c}
-			\label{fig:rot4_gs_solution}
-\end{center}
-\end{minipage} \hfill
-\begin{minipage}[h]{0.47\linewidth}
-\begin{center}
-TKO processing of the rotated waveforms (Model 3)
-			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_TKO_compare}\\
-	  		\label{fig:rot4_tko_comp}
-\end{center}	  		
-\end{minipage}
+%\subsection*{Raw data processing}
+%
+%\renewcommand{\arraystretch}{1.5}
+%\footnotesize
+%\begin{tabular}{c|rr|rr|r|ll}
+%				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
+%\hline Model 1 & -44.9996 & -44.9998 & 45.0004 & 45.0003 & ~0 & $3.1640 \cdot 10^{-10}$ & $3.1385 \cdot 10^{-10}$ \\ 
+%	   Model 2 & -0.0125 & -0.0127 & -90.0125 & -90.0082 & ~0 & $5.1932 \cdot 10^{-6}$ & $5.1901 \cdot 10^{-6}$ \\ 
+% 	   Model 3 & \textbf{-10.5111} & \textbf{-26.3606} & \textbf{79.4889} & \textbf{80.4622} & \textbf{16.8228} & \color{red}{\textbf{0.1726}} & \color{red}{\textbf{0.1511}} \\
+% 	    \hline 
+%\end{tabular} 
+%\\ \\
+%\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
+%\renewcommand{\arraystretch}{1.0}
+%\normalsize
+%\vspace{\baselineskip}
+%
+%\textbf{Plot of TI axis direction obtained for Model 3}\\
+%
+%\begin{minipage}[c]{0.47\linewidth}	
+%\begin{center}
+%		Orthogonal Alford rotation \\
+%		\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_rot4c_scheme}	  		
+%\end{center}	  		
+%\end{minipage} 
+%\begin{minipage}[c]{0.47\linewidth}
+%\begin{center}
+%		Non-orthogonal Alford rotation\\
+%			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_scheme}			
+%\end{center}
+%\end{minipage} \\
+%\footnotesize Here blue lines denote directions obtained from Alford processing; black arrows --- initial direction of dipole sources in numerical calculations.
+%\normalsize
+%\vspace{\baselineskip}
+%\vspace{\baselineskip} 
+%
+%\begin{minipage}[h]{0.47\linewidth}	
+%\begin{center} 
+%$E_{cross}$ function dependence on $\theta$ and $\eta$ (Model 3)\\
+%			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/solution_min_gs_rot4c}
+%			\label{fig:rot4_gs_solution}
+%\end{center}
+%\end{minipage} \hfill
+%\begin{minipage}[h]{0.47\linewidth}
+%\begin{center}
+%TKO processing of the rotated waveforms (Model 3)
+%			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_TKO_compare}\\
+%	  		\label{fig:rot4_tko_comp}
+%\end{center}	  		
+%\end{minipage}
+%
+%\newpage
+%
+%\subsection*{Processing with filters and time window}
+%
+%Two filters or time window were applied to raw Model 3 data before processing.
+%
+%\begin{description}
+%\item[Filter parameters:] Sampling frequency 1194892 Hz, $A_{pass} = 1$ dB, $A_{stop} = 80$ dB, \\ Low-pass: $F_{stop} = 4000$ Hz, $F_{pass} = 5000$ Hz \\ High-pass: $F_{pass} = 4000$ Hz, $F_{stop} = 5000$ Hz
+%\item[Window parameters:] width $\Delta t=1$ ms, slowness $s = 987$ mcs/m
+%\end{description}
+%
+%\renewcommand{\arraystretch}{1.5}
+%\footnotesize
+%\begin{tabular}{c|rr|rr|r|ll}
+%				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
+%\hline  Model 3 (raw) & -10.5111 & -26.3606 & 79.4889 & 80.4622 & 16.8228 & 0.1726 & 0.1511 \\
+%		Time window & -31.0135 & -42.6876 & 58.9865 & 67.8336 & 20.5212& \color{red}{0.0445} & \color{red}{0.0099} \\
+%	   Low-pass filter & -30.6596 & -41.5868 & 59.3404 & 68.1357 & 19.7225 & \color{red}{0.0358} & \color{red}{0.0027} \\
+% 	   High-pass filter & -1.7554 & -4.9971 & 88.2446 & 88.5870 & 3.5841& \color{red}{0.0602} & \color{red}{0.0597} \\ 	   
+% 	    \hline 
+%\end{tabular} 
+%\normalsize
+%\\ \\
+%\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
+%\renewcommand{\arraystretch}{1.0}
+%
+%\vspace{\baselineskip}
+%
+%\textbf{Plot of TI axis direction}\\
+%
+%\begin{minipage}[c]{0.47\linewidth}
+%\begin{center}
+%		Time window plot\\
+%			\psfragfig[width=0.47\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_traces_twindow_1ms}
+%		
+%\end{center}
+%\end{minipage}	
+%\begin{minipage}[c]{0.47\linewidth}
+%\begin{center}
+%		Non-orthogonal Alford rotation with time window 1 ms\\
+%			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_twindow_1ms}
+%		
+%\end{center}
+%\end{minipage} \hfill	 \\
+%\begin{minipage}[c]{0.47\linewidth}	
+%\begin{center}
+%		Non-orthogonal Alford rotation with lowpass filter\\
+%		\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_lpfilter}			
+%	  		\label{fig:rot4_gs_lp_scheme}
+%\end{center}	  		
+%\end{minipage}
+%\begin{minipage}[c]{0.47\linewidth}
+%\begin{center}
+%		Non-orthogonal Alford rotation with highpass filter\\
+%			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_hpfilter}
+%			\label{fig:rot4_gs_hp_scheme}
+%\end{center}
+%\end{minipage} \\
+%
+%\footnotesize Here blue lines denote directions obtained from Alford processing; black arrows --- initial direction of dipole sources in numerical calculations.
+%\normalsize
+%
+%\vspace{\baselineskip}
+%\vspace{\baselineskip}
+%
+%\subsection*{Processing results for other cases}
+%
+%\begin{description}
+%\item[Model 4:] Elliptical $R_1=15$ cm, $R_2=10$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
+%\item[Model 5:] Elliptical $R_1=15$ cm, $R_2=10$ cm, Cotton Valey Shale (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
+%\item[Model 6:] Elliptical $R_1=20$ cm, $R_2=10$ cm, Cotton Valey Shale (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
+%\end{description}
+%
+%\begin{description}
+%\item[Filter parameters:] Sampling frequency 1194892 Hz, $A_{pass} = 1$ dB, $A_{stop} = 80$ dB, \\ Low-pass: $F_{stop} = 4000$ Hz, $F_{pass} = 5000$ Hz \\ High-pass: $F_{pass} = 4000$ Hz, $F_{stop} = 5000$ Hz
+%\item[Window 1 parameters:] width $\Delta t=1$ ms, slowness $s = 987$ mcs/m
+%\item[Window 2 parameters:] width $\Delta t=0.5$ ms, slowness $s = 400$ mcs/m
+%\end{description}
+%
+%\renewcommand{\arraystretch}{1.5}
+%\footnotesize
+%\begin{tabular}{c|rr|rr|r|ll}
+%				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
+%\hline  Model 4 (raw) & -33.1254 & -43.2920 & 56.8746 & 65.1455 & 18.4 & 0.0791 & 0.0460 \\
+%		Time window 1 & -34.9269 & -42.3895 & 55.0731 & 62.0447 & 14.4 & 0.0113 & 0.0010 \\
+%	   Low-pass filter & -34.8496 & -42.1434 & 55.1538 & 62.0865 & 14.2 & 0.0117 & 0.0005 \\
+% 	   High-pass filter & -13.8552 & -30.2318 & 76.1448 & 75.9994 & 16.2 & 0.1489 & 0.1250 \\ 	   
+% 	    \hline 
+%\end{tabular} 
+%\normalsize
+%\renewcommand{\arraystretch}{1.0}
+%
+%\vspace{\baselineskip}
+%
+%\renewcommand{\arraystretch}{1.5}
+%\footnotesize
+%\begin{tabular}{c|rr|rr|r|ll}
+%				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
+%\hline  Model 5 (raw) & -88.2731 & -88.2149 & 1.7269 & 1.6286 & 0.15 & 0.0041 & 0.0041 \\
+%		Time window 2 & -53.6211 & -62.9063 & 36.3789 & 49.2159 & 22.1 & 0.1951 & 0.1362 \\
+%	   Low-pass filter & -87.7936 & -73.4542 & 2.2064 & 2.1189 & 14.4 & 0.0107 & 0.0084 \\ 	   
+% 	    \hline 
+%\end{tabular} 
+%\normalsize
+%\renewcommand{\arraystretch}{1.0}
+%
+%\vspace{\baselineskip}
+%
+%\renewcommand{\arraystretch}{1.5}
+%\footnotesize
+%\begin{tabular}{c|rr|rr|r|ll}
+%				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
+%\hline  Model 6 (raw) & -89.1579 & -89.1352 & 0.8421 & 0.7691 & 0.1 & 0.0062 & 0.0062 \\
+%		Time window 2 & -29.3221 & -59.0992 & 60.6779 & 62.8873 & 32.0 & 0.3304 & 0.2324 \\
+%	   Low-pass filter & -89.0481 & -75.6149 & 0.9519 & 0.9021 & 13.5 & 0.0025 & 0.0021 \\ 	   
+% 	    \hline 
+%\end{tabular} 
+%\normalsize
+%\\ \\
+%\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
+%\renewcommand{\arraystretch}{1.0}
+%
+%\vspace{\baselineskip}
+%
+%\newpage
+%
+%\subsection*{Filter description}
+%
+%\begin{minipage}[h]{0.47\linewidth}	
+%\begin{center} 
+%\textbf{Lowpass filter scheme}\\
+%			\includegraphics[width=\linewidth]{./images/nonorth_alford/lowpass_filter_scheme}
+%			
+%\end{center}
+%\end{minipage} \hfill
+%\begin{minipage}[h]{0.47\linewidth}
+%\begin{center}
+%\textbf{Lowpass filter magnitude response}
+%			\includegraphics[width=\linewidth]{./images/nonorth_alford/lowpass_margn_response}\\
+%	  		
+%\end{center}	  		
+%\end{minipage}
+%
+%\begin{minipage}[h]{0.47\linewidth}	
+%\begin{center} 
+%\textbf{Highpass filter scheme}\\
+%			\includegraphics[width=\linewidth]{./images/nonorth_alford/highpass_filter_scheme}
+%			
+%\end{center}
+%\end{minipage} \hfill
+%\begin{minipage}[h]{0.47\linewidth}
+%\begin{center}
+%\textbf{Highpass filter magnitude response}
+%			\includegraphics[width=\linewidth]{./images/nonorth_alford/highpass_margn_response}\\
+%	  		
+%\end{center}	  		
+%\end{minipage}
+%
+%\vspace{\baselineskip}
+%\vspace{\baselineskip} 
+%
+%\include{nonorth_alford_SAFE}
 
-\newpage
-
-\subsection*{Processing with filters and time window}
-
-Two filters or time window were applied to raw Model 3 data before processing.
-
-\begin{description}
-\item[Filter parameters:] Sampling frequency 1194892 Hz, $A_{pass} = 1$ dB, $A_{stop} = 80$ dB, \\ Low-pass: $F_{stop} = 4000$ Hz, $F_{pass} = 5000$ Hz \\ High-pass: $F_{pass} = 4000$ Hz, $F_{stop} = 5000$ Hz
-\item[Window parameters:] width $\Delta t=1$ ms, slowness $s = 987$ mcs/m
-\end{description}
-
-\renewcommand{\arraystretch}{1.5}
-\footnotesize
-\begin{tabular}{c|rr|rr|r|ll}
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
-\hline  Model 3 (raw) & -10.5111 & -26.3606 & 79.4889 & 80.4622 & 16.8228 & 0.1726 & 0.1511 \\
-		Time window & -31.0135 & -42.6876 & 58.9865 & 67.8336 & 20.5212& \color{red}{0.0445} & \color{red}{0.0099} \\
-	   Low-pass filter & -30.6596 & -41.5868 & 59.3404 & 68.1357 & 19.7225 & \color{red}{0.0358} & \color{red}{0.0027} \\
- 	   High-pass filter & -1.7554 & -4.9971 & 88.2446 & 88.5870 & 3.5841& \color{red}{0.0602} & \color{red}{0.0597} \\ 	   
- 	    \hline 
-\end{tabular} 
-\normalsize
-\\ \\
-\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
-\renewcommand{\arraystretch}{1.0}
-
-\vspace{\baselineskip}
-
-\textbf{Plot of TI axis direction}\\
-
-\begin{minipage}[c]{0.47\linewidth}
-\begin{center}
-		Time window plot\\
-			\psfragfig[width=0.47\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_traces_twindow_1ms}
-		
-\end{center}
-\end{minipage}	
-\begin{minipage}[c]{0.47\linewidth}
-\begin{center}
-		Non-orthogonal Alford rotation with time window 1 ms\\
-			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_twindow_1ms}
-		
-\end{center}
-\end{minipage} \hfill	 \\
-\begin{minipage}[c]{0.47\linewidth}	
-\begin{center}
-		Non-orthogonal Alford rotation with lowpass filter\\
-		\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_lpfilter}			
-	  		\label{fig:rot4_gs_lp_scheme}
-\end{center}	  		
-\end{minipage}
-\begin{minipage}[c]{0.47\linewidth}
-\begin{center}
-		Non-orthogonal Alford rotation with highpass filter\\
-			\psfragfig[width=0.40\linewidth,crop=pdfcrop]{./images/nonorth_alford/el20x10_TTI60_gs_rot4c_hpfilter}
-			\label{fig:rot4_gs_hp_scheme}
-\end{center}
-\end{minipage} \\
-
-\footnotesize Here blue lines denote directions obtained from Alford processing; black arrows --- initial direction of dipole sources in numerical calculations.
-\normalsize
-
-\vspace{\baselineskip}
-\vspace{\baselineskip}
-
-\subsection*{Processing results for other cases}
-
-\begin{description}
-\item[Model 4:] Elliptical $R_1=15$ cm, $R_2=10$ cm, Austin Chalk (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
-\item[Model 5:] Elliptical $R_1=15$ cm, $R_2=10$ cm, Cotton Valey Shale (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
-\item[Model 6:] Elliptical $R_1=20$ cm, $R_2=10$ cm, Cotton Valey Shale (TI angles: $\zeta=60$\textdegree, $\phi=45$\textdegree) 
-\end{description}
-
-\begin{description}
-\item[Filter parameters:] Sampling frequency 1194892 Hz, $A_{pass} = 1$ dB, $A_{stop} = 80$ dB, \\ Low-pass: $F_{stop} = 4000$ Hz, $F_{pass} = 5000$ Hz \\ High-pass: $F_{pass} = 4000$ Hz, $F_{stop} = 5000$ Hz
-\item[Window 1 parameters:] width $\Delta t=1$ ms, slowness $s = 987$ mcs/m
-\item[Window 2 parameters:] width $\Delta t=0.5$ ms, slowness $s = 400$ mcs/m
-\end{description}
-
-\renewcommand{\arraystretch}{1.5}
-\footnotesize
-\begin{tabular}{c|rr|rr|r|ll}
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
-\hline  Model 4 (raw) & -33.1254 & -43.2920 & 56.8746 & 65.1455 & 18.4 & 0.0791 & 0.0460 \\
-		Time window 1 & -34.9269 & -42.3895 & 55.0731 & 62.0447 & 14.4 & 0.0113 & 0.0010 \\
-	   Low-pass filter & -34.8496 & -42.1434 & 55.1538 & 62.0865 & 14.2 & 0.0117 & 0.0005 \\
- 	   High-pass filter & -13.8552 & -30.2318 & 76.1448 & 75.9994 & 16.2 & 0.1489 & 0.1250 \\ 	   
- 	    \hline 
-\end{tabular} 
-\normalsize
-\renewcommand{\arraystretch}{1.0}
-
-\vspace{\baselineskip}
-
-\renewcommand{\arraystretch}{1.5}
-\footnotesize
-\begin{tabular}{c|rr|rr|r|ll}
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
-\hline  Model 5 (raw) & -88.2731 & -88.2149 & 1.7269 & 1.6286 & 0.15 & 0.0041 & 0.0041 \\
-		Time window 2 & -53.6211 & -62.9063 & 36.3789 & 49.2159 & 22.1 & 0.1951 & 0.1362 \\
-	   Low-pass filter & -87.7936 & -73.4542 & 2.2064 & 2.1189 & 14.4 & 0.0107 & 0.0084 \\ 	   
- 	    \hline 
-\end{tabular} 
-\normalsize
-\renewcommand{\arraystretch}{1.0}
-
-\vspace{\baselineskip}
-
-\renewcommand{\arraystretch}{1.5}
-\footnotesize
-\begin{tabular}{c|rr|rr|r|ll}
-				&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{cross}^o/E_{total}^o$} & \multicolumn{1}{c}{$E_{cross}^n/E_{total}^n$} \\ \hline
-\hline  Model 6 (raw) & -89.1579 & -89.1352 & 0.8421 & 0.7691 & 0.1 & 0.0062 & 0.0062 \\
-		Time window 2 & -29.3221 & -59.0992 & 60.6779 & 62.8873 & 32.0 & 0.3304 & 0.2324 \\
-	   Low-pass filter & -89.0481 & -75.6149 & 0.9519 & 0.9021 & 13.5 & 0.0025 & 0.0021 \\ 	   
- 	    \hline 
-\end{tabular} 
-\normalsize
-\\ \\
-\quad *$E_{total}$ denotes 1-norm of the corresponding $\mathbf{D}$ matrix.
-\renewcommand{\arraystretch}{1.0}
-
-\vspace{\baselineskip}
-
-\newpage
-
-\subsection*{Filter description}
-
-\begin{minipage}[h]{0.47\linewidth}	
-\begin{center} 
-\textbf{Lowpass filter scheme}\\
-			\includegraphics[width=\linewidth]{./images/nonorth_alford/lowpass_filter_scheme}
-			
-\end{center}
-\end{minipage} \hfill
-\begin{minipage}[h]{0.47\linewidth}
-\begin{center}
-\textbf{Lowpass filter magnitude response}
-			\includegraphics[width=\linewidth]{./images/nonorth_alford/lowpass_margn_response}\\
-	  		
-\end{center}	  		
-\end{minipage}
-
-\begin{minipage}[h]{0.47\linewidth}	
-\begin{center} 
-\textbf{Highpass filter scheme}\\
-			\includegraphics[width=\linewidth]{./images/nonorth_alford/highpass_filter_scheme}
-			
-\end{center}
-\end{minipage} \hfill
-\begin{minipage}[h]{0.47\linewidth}
-\begin{center}
-\textbf{Highpass filter magnitude response}
-			\includegraphics[width=\linewidth]{./images/nonorth_alford/highpass_margn_response}\\
-	  		
-\end{center}	  		
-\end{minipage}
-
-\vspace{\baselineskip}
-\vspace{\baselineskip} 
-
-\include{nonorth_alford_SAFE}
-
-\bibliography{c:/Users/German/Documents/TeX_Library/library}
-%\bibliography{../../../Literature/TeX_Library/library} %
+%\bibliography{c:/Users/German/Documents/TeX_Library/library}
+\bibliography{../../../Literature/TeX_Library/library} %
 \bibliographystyle{unsrt}
 %\bibliographystyle{plainnat_no_url}
 
