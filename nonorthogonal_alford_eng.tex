@@ -136,7 +136,7 @@ The spectral analysis reveals that the major energy of the signal is in the freq
 		\hline
 		&\multicolumn{1}{c}{$\theta_1^o$} & \multicolumn{1}{c|}{$\theta_1^n$} & \multicolumn{1}{c}{$\theta_2^o$} & \multicolumn{1}{c|}{$\theta_2^n$} & \multicolumn{1}{c|}{$\Delta\theta^n$}& \multicolumn{1}{c}{$E_{rel}^o, \%$} & \multicolumn{1}{c|}{$E_{rel}^n, \%$} \\ \hline
 		\hline	Bakken Shale ($12.70 \times 10.16$) &  49.4 & 40.5 & -40.6 & -35.4  & 14.1 & 2.0 & 1.2\\
-		\hline	Bakken Shale ($15.00 \times 10.00$) &  41.2 & 25.7 & -48.8 & -32.0  & 32.3 & 22.1 & 20.0\\
+		\hline	Bakken Shale ($15.00 \times 10.00$) &  41.2 & 25.7 & -48.8 & -32.0  & 32.3 & 22.1 & 12.0\\
 		\hline  Cotton Valey Shale ($12.70 \times 10.16$) & 48.4 & 39.7 & -41.6 & -35.5  & 14.8  & 9.7 & 7.0 \\
 		\hline	Cotton Valey Shale ($15.00 \times 10.00$) & 6.0 & 7.7 & -84.0 & -56.6  & 25.7  & 7.9 & 7.3 \\
 		\hline	
@@ -150,7 +150,8 @@ The spectral analysis reveals that the major energy of the signal is in the freq
 
 \subsection{SAFE comparison}
 
-The semi-analytical finite element method used for independent calculation the eigenvectors of dipole modes and further comparison with Alford rotation results. Following the methodology in \cite{Zharnikov2015}, we obtain eigensolution for pressure field for each of dipole modes for several frequencies within the considered range. As the initial signal have a continuous spectral density, we used for comparison an eigenvector corresponded to the frequency with maximum amplitude in spectrum of signal. The figures \ref{fig:bs10_8_HTI45} and \ref{fig:cs15_10_HTI45} show the comparison results for Bakken Shale and Cotton Shale. The observed non-orthogonality of SAFE eigenvectors fits the results of rotation at a low frequencies. We also observe a confident match of polarization directions and orthogonality of eigenvectors at high frequencies.
+The semi-analytical finite element method used for independent calculation the eigenvectors of dipole modes and further comparison with Alford rotation results. Following the methodology in \cite{Zharnikov2015}, we obtain eigensolution for pressure field for each of dipole modes for several frequencies within the considered range. The pressure gradient indicates the direction of particle oscillation at a given frequency. As the initial signal have a continuous spectral density, we chose an eigensolution that correspond to the frequency with maximum amplitude in a signal spectrum. The figures \ref{fig:bs10_8_HTI45} and \ref{fig:cs15_10_HTI45} show the comparison results for Bakken Shale and Cotton Shale. The observed non-orthogonality of SAFE eigenvectors fits the results of rotation at a low frequencies. We also observe a confident match of polarization directions and orthogonality of eigenvectors at high frequencies.
+The application of various highpass filters reveals an asymptotic orthogonal orientations for dipole modes at high frequencies. These orientations depends on ellipticity of borehole and don't coincide with geometry axes of ellipse. It should be noted that the angle values obtained by orthogonal Alford rotation are just accidentally matched with 45\textdegree \ specified in the model. This statement is confirmed by  eigenvectors position, as well as a lesser degree of the measurement matrix diagonalization.
 
 \begin{figure}[h]
 	%\centering
