@@ -83,7 +83,7 @@ Following the idea of \cite{Zharnikov2015}, the independent calculation of modes
 \subsection{Models configuration}
 The typical numerical 3D model used for simulation of acoustic logging data contain an elliptic borehole filled with water ($\rho = 1000 \ kg/m^3$, $V_f=1500 \ m/s$) in anisotropic elastic medium. There is dipole source in the center of borehole directed at some angle different to ellipse axis (usually 60\textdegree or 150\textdegree). The source emit an acoustic wave modulated by first derivative of Blackman-Harris pulse with central frequency of 4 kHz. The receivers array consist of 16 layers with axial spacing of 9.12 cm and offset 1.82 m. Each layer contain 4 azimuthal receivers at radius of 2.84 cm which are relevant to the directions of sources.
 
-As a surrounding material, we use Bakken Shale and Cotton Valley Shale which have a transversely-isotropic type (TI) of symmetry. The elastic moduli of the materials are given in Table \ref{tab:properties}. These formations are often used as a typical fast anisotropic formation for simulations. In this paper we consider the case when the symmetry axis is inclined by 90\textdegree with respect to the borehole axis (so called HTI), but in cross-section plane it can have an arbitrary orientation angle $\theta$. We take $\theta$ as an angle measured counterclockwise from the major axis of ellipse. 
+As a surrounding material, we use Bakken Shale and Cotton Valley Shale which have a transversely-isotropic type (TI) of symmetry. The elastic moduli of the materials are given in Table \ref{tab:properties}. These formations are often used as a typical fast anisotropic formation for simulations. In this paper we consider the case when the symmetry axis is inclined by 90\textdegree with respect to the borehole axis (HTI), but in cross-section plane it can have an arbitrary orientation angle $\theta$. We take $\theta$ as an angle measured counterclockwise from the major axis of ellipse. 
 
 \begin{table}[H]
 \footnotesize
@@ -102,7 +102,9 @@ As a surrounding material, we use Bakken Shale and Cotton Valley Shale which hav
 \end{table}
 
 \subsection{Processing of initial data}
-First of all, difference between orthogonal and non-orthogonal approach was checked on raw numerical data without filtering. For this purpose, we considered two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree  and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
+First of all, a series of simulations with TI formation in cylindrical boreholes were performed to check the rotation algorithms. The initial data matrix $\mathbf{R}$ formed with simulated measurements is not strictly symmetrical due to presence of numerical noise. The quantity $E_{rel}$, which is the ratio of sum of non-diagonal components of the rotated matrix $\mathbf{D}$ to diagonal ones, characterize how effective rotation algorithm is. When processing the simulated measurements in cylindrical boreholes, $E_{rel}$ is of the order of $10^{-7}$; $\theta$ angle coincides with the value specified in the model with accuracy of $\approx 0.1$\textdegree. These values are taken as an error of the numerical method and processing algorithms.
+
+The orthogonal and non-orthogonal Alrord rotation was applied to numerical measurements in two elliptical boreholes (semiaxes length $12.70\times10.16$ and $15\times10$ cm) in TI formation and $\theta=45\textdegree$. Both algorithms give similar results with minor non-orthogonality (see Table \ref{tab:std_process_results}). However, output angles differs much from model value of 45\textdegree  and -45\textdegree. The difference raise with ellipticity ratio of a borehole.
 
 \begin{table}[h]
 \footnotesize
@@ -151,7 +153,7 @@ The spectral analysis reveals that the major energy of the signal is in the freq
 \subsection{SAFE comparison}
 
 The semi-analytical finite element method used for independent calculation the eigenvectors of dipole modes and further comparison with Alford rotation results. Following the methodology in \cite{Zharnikov2015}, we obtain eigensolution for pressure field for each of dipole modes for several frequencies within the considered range. The pressure gradient indicates the direction of particle oscillation at a given frequency. As the initial signal have a continuous spectral density, we chose an eigensolution that correspond to the frequency with maximum amplitude in a signal spectrum. The figures \ref{fig:bs10_8_HTI45} and \ref{fig:cs15_10_HTI45} show the comparison results for Bakken Shale and Cotton Shale. The observed non-orthogonality of SAFE eigenvectors fits the results of rotation at a low frequencies. We also observe a confident match of polarization directions and orthogonality of eigenvectors at high frequencies.
-The application of various highpass filters reveals an asymptotic orthogonal orientations for dipole modes at high frequencies. These orientations depends on ellipticity of borehole and don't coincide with geometry axes of ellipse. It should be noted that the angle values obtained by orthogonal Alford rotation are just accidentally matched with 45\textdegree \ specified in the model. This statement is confirmed by  eigenvectors position, as well as a lesser degree of the measurement matrix diagonalization.
+The application of various highpass filters reveals an asymptotic orthogonal orientations for dipole modes at high frequencies. These orientations depends on ellipticity of borehole and don't coincide with geometry axes of ellipse. It should be noted that the angle values obtained by orthogonal Alford rotation are just accidentally matched with 45\textdegree \ specified in the model. %This statement is confirmed by  eigenvectors position, as well as a lesser degree of the measurement matrix diagonalization.
 
 \begin{figure}[h]
 	%\centering
@@ -221,10 +223,10 @@ The application of various highpass filters reveals an asymptotic orthogonal ori
 			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_s_7_2kHz}		
 		\end{minipage}&
 		\begin{minipage}{0.22\linewidth}
-			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_3_3kHz}		
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_3_0kHz}		
 		\end{minipage}&
 		\begin{minipage}{0.22\linewidth}
-			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_5_5kHz}		
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_s_7_2kHz}		
 		\end{minipage} \\
 		\begin{minipage}{0.02\linewidth}
 			\rotatebox{90}{\footnotesize\textit{Äèïîëüíàÿ ìîäà 2}} 
@@ -236,10 +238,10 @@ The application of various highpass filters reveals an asymptotic orthogonal ori
 			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_10x8_HTI_45/P_a_7_2kHz}		
 		\end{minipage}&
 		\begin{minipage}{0.22\linewidth}
-			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_3_3kHz}		
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_3_0kHz}		
 		\end{minipage}&
 		\begin{minipage}{0.22\linewidth}
-			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_5_5kHz}		
+			\psfragfig[width=0.22\linewidth,crop=pdfcrop]{./images/SAFE/SAFE_CS_15x10_HTI_45/P_a_7_2kHz}		
 		\end{minipage}\\
 		& \footnotesize Í×Ô, 3.03 êÃö & \footnotesize Â×Ô, 7.17 êÃö & \footnotesize Í×Ô, 3.03 êÃö & \footnotesize Â×Ô, 7.17 êÃö \\ \cline{2-5}
 	\end{tabular*}
